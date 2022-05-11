@@ -11,6 +11,10 @@ func _process(delta):
 	
 	if Input.is_action_pressed("mouse_down"):
 		#print("ye")
-		set_cellv(world_to_map(get_local_mouse_position()),0)
+		
+		if get_cellv(world_to_map(get_local_mouse_position()))!=0:
+			
+			set_cellv(world_to_map(get_local_mouse_position()),0)
+		
+			get_tree().get_root().get_node("Main/GUI/HBoxContainer/PanelContainer/Money")._deltaMoney(-10)
 	
-

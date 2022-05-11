@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Tilesets/mainFloor.tres" type="TileSet" id=1]
 [ext_resource path="res://TileMap.gd" type="Script" id=2]
 [ext_resource path="res://Tilesets/tile.png" type="Texture" id=3]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node2D"]
 
@@ -23,3 +24,9 @@ offset = Vector2( 0, 16 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="GUI" parent="." instance=ExtResource( 4 )]
+margin_left = -510.0
+margin_top = -300.0
+margin_right = 510.0
+margin_bottom = 300.0
