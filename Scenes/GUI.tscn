@@ -1,9 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/GUI.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Money.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Time.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Finances.gd" type="Script" id=4]
+[ext_resource path="res://Tilesets/wall.png" type="Texture" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://Tilesets/tile.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Floors.gd" type="Script" id=8]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Button
+
+
+
+func _ready():
+	pass # Replace with function body.
+
+"
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
@@ -12,19 +26,22 @@ margin_right = -1024.0
 margin_bottom = -600.0
 script = ExtResource( 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 94.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Finances" type="VBoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+margin_bottom = 28.0
+
+[node name="Finances" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
 margin_right = 94.0
 margin_bottom = 28.0
 script = ExtResource( 4 )
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Finances"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer/Finances"]
 margin_right = 94.0
 margin_bottom = 28.0
 
-[node name="Money" type="Label" parent="HBoxContainer/Finances/PanelContainer"]
+[node name="Money" type="Label" parent="CanvasLayer/HBoxContainer/Finances/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 87.0
@@ -34,29 +51,114 @@ text = "100000 Euro"
 align = 1
 script = ExtResource( 2 )
 
-[node name="Clients" type="PanelContainer" parent="HBoxContainer"]
+[node name="Clients" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
 margin_left = 98.0
 margin_right = 168.0
 margin_bottom = 28.0
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="HBoxContainer/Clients"]
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/Clients"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 63.0
 margin_bottom = 21.0
 text = "0 Clients"
 
-[node name="Time" type="PanelContainer" parent="HBoxContainer"]
+[node name="Time" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
 margin_left = 172.0
 margin_right = 222.0
 margin_bottom = 28.0
 size_flags_vertical = 0
 
-[node name="time" type="Label" parent="HBoxContainer/Time"]
+[node name="time" type="Label" parent="CanvasLayer/HBoxContainer/Time"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 43.0
 margin_bottom = 21.0
 text = "00:00"
 script = ExtResource( 3 )
+
+[node name="Items" type="HBoxContainer" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -224.0
+
+[node name="Floors" type="VBoxContainer" parent="CanvasLayer/Items"]
+margin_right = 100.0
+margin_bottom = 224.0
+
+[node name="floors" type="ScrollContainer" parent="CanvasLayer/Items/Floors"]
+margin_right = 100.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 100, 200 )
+script = ExtResource( 8 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Items/Floors/floors"]
+margin_right = 101.0
+margin_bottom = 38.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Items/Floors/floors/VBoxContainer"]
+margin_right = 101.0
+margin_bottom = 38.0
+text = "Tile"
+icon = ExtResource( 7 )
+
+[node name="Button" type="Button" parent="CanvasLayer/Items/Floors"]
+margin_top = 204.0
+margin_right = 100.0
+margin_bottom = 224.0
+text = "Floors"
+script = SubResource( 1 )
+
+[node name="Walls" type="VBoxContainer" parent="CanvasLayer/Items"]
+margin_left = 104.0
+margin_right = 254.0
+margin_bottom = 224.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Items/Walls"]
+margin_right = 150.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 150, 200 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Items/Walls/ScrollContainer"]
+margin_right = 106.0
+margin_bottom = 70.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Items/Walls/ScrollContainer/VBoxContainer"]
+margin_right = 106.0
+margin_bottom = 70.0
+text = "Wall"
+icon = ExtResource( 5 )
+
+[node name="Button" type="Button" parent="CanvasLayer/Items/Walls"]
+margin_top = 204.0
+margin_right = 150.0
+margin_bottom = 224.0
+text = "Walls"
+
+[node name="Objects" type="VBoxContainer" parent="CanvasLayer/Items"]
+margin_left = 258.0
+margin_right = 408.0
+margin_bottom = 224.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Items/Objects"]
+margin_right = 150.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 150, 200 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Items/Objects/ScrollContainer"]
+margin_right = 105.0
+margin_bottom = 70.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Items/Objects/ScrollContainer/VBoxContainer"]
+margin_right = 105.0
+margin_bottom = 70.0
+text = "fgdd"
+icon = ExtResource( 6 )
+
+[node name="Button" type="Button" parent="CanvasLayer/Items/Objects"]
+margin_top = 204.0
+margin_right = 150.0
+margin_bottom = 224.0
+text = "Objects"

@@ -7,9 +7,9 @@ var hours:int=0
 
 signal transaction
 
-func change_money(amount:int) -> void:
+func change_money(amount:int,item) -> void:
 	money+=amount
-	emit_signal("transaction",amount)
+	emit_signal("transaction",amount,item)
 	
 func _process(delta):
 	seconds+=delta
