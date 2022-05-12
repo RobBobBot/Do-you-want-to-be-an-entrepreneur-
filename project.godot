@@ -11,12 +11,12 @@ config_version=4
 [application]
 
 config/name="projant"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Globals="*res://Globals.gd"
+Globals="*res://Scripts/Globals.gd"
 
 [input]
 
