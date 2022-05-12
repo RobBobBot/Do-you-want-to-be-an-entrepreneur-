@@ -1,16 +1,10 @@
 extends Label
 
-var money=100000;
-
 func _updateText():
-	text=str(money)+" Euro"
-
-func _deltaMoney(var delta):
-	money+=delta
-	_updateText()
+	text=str(Globals.money)
 
 func _ready():
-	pass 
+	Globals.connect("money_changed",self,"_updateText")
 
 func _process(delta):
 	pass
