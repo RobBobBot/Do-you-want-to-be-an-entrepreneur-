@@ -24,4 +24,3 @@ func _process(delta):
 	
 	if hours==24:
 		hours=0
-		

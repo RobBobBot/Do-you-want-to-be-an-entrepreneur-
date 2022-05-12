@@ -1,20 +1,34 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Tilesets/mainFloor.tres" type="TileSet" id=2]
+[ext_resource path="res://Tilesets/mainFloor.tres" type="TileSet" id=1]
+[ext_resource path="res://Scripts/TileMap.gd" type="Script" id=2]
 [ext_resource path="res://Tilesets/tile.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/TileMap.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Man.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 4, 93 )
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 4 )]
+anchor_right = 0.999
+margin_right = -1022.98
+margin_bottom = -600.0
+
 [node name="TileMap" type="TileMap" parent="."]
 mode = 1
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 1 )
+
 cell_size = Vector2( 64, 32 )
 cell_custom_transform = Transform2D( 64, 64, 64, 64, 0, 0 )
 format = 1
 tile_data = PoolIntArray( -65538, 1, 0, -65537, 1, 0, -2, 1, 0, -1, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65540, 1, 0, 65543, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131076, 1, 0, 131079, 1, 0, 196612, 1, 0, 196615, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262151, 1, 0, 327680, 1, 0, 327687, 1, 0, 393216, 1, 0, 393223, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0 )
-script = ExtResource( 4 )
+
+script = ExtResource( 2 )
 
 [node name="Icon" type="Sprite" parent="TileMap"]
 modulate = Color( 0.105882, 1, 0, 0.25098 )
@@ -22,9 +36,8 @@ position = Vector2( 270, 96 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 16 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GUI" parent="CanvasLayer" instance=ExtResource( 1 )]
+[node name="Man" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4, 93 )
+floor_map_path = NodePath("../TileMap")
+wall_map_path = NodePath("../TileMap")
