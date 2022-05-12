@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Tilesets/mainFloor.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/TileMap.gd" type="Script" id=2]
-[ext_resource path="res://Tilesets/tile.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/wooden_floor.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Man.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Cursor.gd" type="Script" id=6]
 
 [node name="Main" type="Node2D"]
 
@@ -32,6 +33,7 @@ modulate = Color( 0.105882, 1, 0, 0.25098 )
 position = Vector2( 270, 96 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 16 )
+script = ExtResource( 6 )
 
 [node name="Man" parent="." instance=ExtResource( 5 )]
 position = Vector2( 4, 93 )
