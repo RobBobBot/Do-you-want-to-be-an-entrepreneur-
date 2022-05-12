@@ -1,10 +1,10 @@
 extends Label
 
 func _updateText():
-	text=str(Globals.money)
+	text=str(Globals.money)+" Euro"
 
 func _ready():
-	Globals.connect("money_changed",self,"_updateText")
-
-func _process(delta):
 	pass
+	
+func _process(delta):
+	_updateText()
