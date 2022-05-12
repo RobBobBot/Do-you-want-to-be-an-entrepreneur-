@@ -15,3 +15,5 @@ func _process(delta):
 		if get_cellv(world_to_map(get_local_mouse_position()))!=0:
 			set_cellv(world_to_map(get_local_mouse_position()),0)
 			Globals.change_money(-10)
+
+
