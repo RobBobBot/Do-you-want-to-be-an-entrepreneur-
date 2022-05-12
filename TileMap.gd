@@ -13,8 +13,5 @@ func _process(delta):
 		#print("ye")
 		
 		if get_cellv(world_to_map(get_local_mouse_position()))!=0:
-			
 			set_cellv(world_to_map(get_local_mouse_position()),0)
-		
-			get_tree().get_root().get_node("Main/GUI/HBoxContainer/PanelContainer/Money")._deltaMoney(-10)
-	
+			Globals.change_money(-10)

@@ -14,6 +14,10 @@ config/name="projant"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Globals.gd"
+
 [input]
 
 mouse_down={
