@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Sprites/wall.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/wooden_wall.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Hide.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Walls.gd" type="Script" id=3]
 
 [node name="Walls" type="VBoxContainer"]
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 3 )
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 margin_right = 164.0
@@ -38,4 +40,5 @@ margin_right = 164.0
 margin_bottom = 188.0
 text = "Walls"
 
+[connection signal="pressed" from="PanelContainer/walls/VBoxContainer/Button" to="." method="_on_Button_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="Button" to="PanelContainer" method="_on_Button_pressed"]

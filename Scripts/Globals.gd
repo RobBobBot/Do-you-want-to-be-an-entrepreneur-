@@ -32,11 +32,11 @@ func _input(event):
 	if event is InputEventKey && event.scancode == KEY_ESCAPE:
 		change_current_item(-1)
 
-var currentItem = -1 
+var currentItem = -1
 	
-var items = [
-	[-10,"Wooden floor",load ("res:Sprites/woodenfloor.png")],
-	[-15,"Wooden wall", "" ]
+const items = [
+	[-10,"Wooden floor",preload ("res://Sprites/wooden_floor.png")],
+	[-15,"Wooden wall",preload ("res://Sprites/wooden_wall.png") ]
 ]
 
 func change_current_item(var itemid):
