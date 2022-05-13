@@ -12,6 +12,10 @@ func _process(delta):
 	if Input.is_action_pressed("mouse_down"):
 		#print("ye")
 		
-		if get_cellv(world_to_map(get_local_mouse_position()))!=0:
-			set_cellv(world_to_map(get_local_mouse_position()),0)
-			Globals.change_money(-10)
+		if get_cellv(world_to_map(get_local_mouse_position()))!=0 && Globals.currentItem!=-1:
+			
+			var itemid = Globals.currentItem
+			
+			set_cellv(world_to_map(get_local_mouse_position()),itemid)
+			
+			Globals.change_money(Globals.items[itemid][0],Globals.items[itemid][1])
