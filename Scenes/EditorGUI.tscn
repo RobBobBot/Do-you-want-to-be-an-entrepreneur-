@@ -8,32 +8,37 @@
 [ext_resource path="res://Scenes/Objects.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Floors.tscn" type="PackedScene" id=8]
 
-[node name="GUI" type="Control"]
+[node name="EditorGUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1024.0
 margin_bottom = -600.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
-margin_bottom = 28.0
+margin_right = 308.0
+margin_bottom = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Finances" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+[node name="Finances" type="VBoxContainer" parent="HBoxContainer"]
 margin_right = 150.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
 alignment = 1
 script = ExtResource( 4 )
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer/Finances"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Finances"]
 margin_top = 1.0
 margin_right = 150.0
 margin_bottom = 29.0
 
-[node name="Money" type="Label" parent="CanvasLayer/HBoxContainer/Finances/PanelContainer"]
+[node name="Money" type="Label" parent="HBoxContainer/Finances/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 143.0
@@ -43,14 +48,14 @@ text = "100000 Euro"
 align = 1
 script = ExtResource( 2 )
 
-[node name="Clients" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
+[node name="Clients" type="PanelContainer" parent="HBoxContainer"]
 margin_left = 154.0
 margin_right = 254.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 100, 30 )
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/Clients"]
+[node name="Label" type="Label" parent="HBoxContainer/Clients"]
 margin_left = 7.0
 margin_top = 8.0
 margin_right = 93.0
@@ -58,40 +63,59 @@ margin_bottom = 22.0
 text = "0 Clients"
 align = 1
 
-[node name="Time" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
+[node name="Time" type="PanelContainer" parent="HBoxContainer"]
 margin_left = 258.0
 margin_right = 308.0
 margin_bottom = 28.0
 size_flags_vertical = 0
 
-[node name="time" type="Label" parent="CanvasLayer/HBoxContainer/Time"]
+[node name="time" type="Label" parent="HBoxContainer/Time"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 43.0
 margin_bottom = 21.0
 text = "00:00"
 script = ExtResource( 3 )
-[node name="Items" type="HBoxContainer" parent="CanvasLayer"]
-anchor_top = 1.0
+
+[node name="DaytimeButton" type="Button" parent="HBoxContainer"]
+margin_left = 312.0
+margin_right = 396.0
+margin_bottom = 30.0
+text = "Go to Work"
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 1.0
+margin_top = 353.0
+margin_right = 1025.0
+margin_bottom = 599.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Items" type="HBoxContainer" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -188.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Floors" parent="CanvasLayer/Items" instance=ExtResource( 8 )]
+[node name="Floors" parent="Panel/Items" instance=ExtResource( 8 )]
 margin_right = 338.0
-margin_bottom = 188.0
+margin_bottom = 246.0
 size_flags_horizontal = 3
 
-[node name="Walls" parent="CanvasLayer/Items" instance=ExtResource( 5 )]
+[node name="Walls" parent="Panel/Items" instance=ExtResource( 5 )]
 margin_left = 342.0
 margin_right = 681.0
-margin_bottom = 188.0
+margin_bottom = 246.0
+mouse_filter = 2
 size_flags_horizontal = 3
 alignment = 2
 
-[node name="Objects" parent="CanvasLayer/Items" instance=ExtResource( 6 )]
+[node name="Objects" parent="Panel/Items" instance=ExtResource( 6 )]
 margin_left = 685.0
 margin_right = 1024.0
-margin_bottom = 188.0
+margin_bottom = 246.0
+mouse_filter = 0
 size_flags_horizontal = 3
 alignment = 2
