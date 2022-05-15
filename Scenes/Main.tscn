@@ -1,10 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Tilesets/mainFloor.tres" type="TileSet" id=1]
-[ext_resource path="res://TileMap.gd" type="Script" id=2]
-[ext_resource path="res://Tilesets/tile.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/TileMap.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/wooden_floor.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Man.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Cursor.gd" type="Script" id=6]
 
 [node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 4, 93 )
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 4 )]
+anchor_right = 0.999
+margin_right = -1022.98
 
 [node name="TileMap" type="TileMap" parent="."]
 mode = 1
@@ -20,6 +33,9 @@ modulate = Color( 0.105882, 1, 0, 0.25098 )
 position = Vector2( 270, 96 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 16 )
+script = ExtResource( 6 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
+[node name="Man" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4, 93 )
+floor_map_path = NodePath("../TileMap")
+wall_map_path = NodePath("../TileMap")
