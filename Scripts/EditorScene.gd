@@ -8,7 +8,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$GUILayer/GUI.daytime_button.connect("pressed",self,"go_to_daytime")
+	#$GUILayer/GUI.daytime_button.connect("pressed",self,"go_to_daytime")
 	pass # Replace with function body.
 
 func go_to_daytime():
