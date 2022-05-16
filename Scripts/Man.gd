@@ -9,12 +9,11 @@ export var x:int
 export var y:int
 
 
-enum{
-	NORTH,
-	SOUTH,
-	EAST,
-	WEST
-}
+const NORTH=Vector2(0,-1)
+const SOUTH=Vector2(0,1)
+const EAST=Vector2(1,0)
+const WEST=Vector2(-1,0)
+
 
 var move_stack:Array # e defapt queue
 
@@ -26,10 +25,7 @@ func _ready():
 	floor_map=get_node(floor_map_path)
 	wall_map=get_node(wall_map_path)
 	
-	move_stack.push_back(NORTH)
-	move_stack.push_back(WEST)
-	move_stack.push_back(SOUTH)
-	move_stack.push_back(EAST)
+	make_path_to_target(Vector2(10,10))
 	
 	update_position()
 	move_to_next()
@@ -46,6 +42,42 @@ func update_position():
 
 
 
+func make_path_to_target(tar:Vector2): #foloseste lee ca sa updateze vectorul de miscare
+	
+	var queue:Array
+	var dir:Dictionary
+	queue.push_back(Vector2(x,y))
+	dir[queue.front()]=-1
+	
+	#$Icon.global_position=floor_map.map_to_world(Vector2(x,y))
+	
+	while !queue.empty():
+		var current:Vector2=queue.front()
+		queue.pop_front()
+		if current==tar:
+			break
+		if floor_map.get_cell(current.x,current.y) != TileMap.INVALID_CELL:
+			if !dir.has(current+EAST):
+				dir[current+EAST]=EAST
+				queue.push_back(current+EAST)
+			if !dir.has(current+NORTH):
+				dir[current+NORTH]=NORTH
+				queue.push_back(current+NORTH)
+			if !dir.has(current+WEST):
+				dir[current+WEST]=WEST
+				queue.push_back(current+WEST)
+			if !dir.has(current+SOUTH):
+				dir[current+SOUTH]=SOUTH
+				queue.push_back(current+SOUTH)
+	
+	if dir.has(tar):
+		move_stack.clear()
+		var current:Vector2=tar
+		while current!=Vector2(x,y):
+			move_stack.push_front(dir[current])
+			current-=dir[current]
+	print(move_stack)
+
 
 
 func move_to_next():
@@ -57,25 +89,14 @@ func move_to_next():
 	else:
 		$AnimationPlayer.stop()
 
-func move(dir:int):
+func move(dir:Vector2):
 	var change:Vector2=Vector2(32,16) #change of sprite position
-	if dir==NORTH:
-		y-=1
-		change.y*=-1
-	elif dir==SOUTH:
-		y+=1
-		change.x*=-1
-	elif dir==EAST:
-		x+=1
-	elif dir==WEST:
-		x-=1
-		change.x*=-1
-		change.y*=-1
-	else:
-		#ce facusesi verisor
-		return
+	change.y*=(dir.y+dir.x)
+	change.x*=(dir.x-dir.y)
 	
-	$SpriteMover.interpolate_property($Sprite, "position", Vector2.ZERO, change, 1.0)
+	x+=dir.x
+	y+=dir.y
+	$SpriteMover.interpolate_property($Sprite, "position", Vector2.ZERO, change, 0.5)
 	
 
 

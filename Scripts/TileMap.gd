@@ -1,21 +1,27 @@
 extends TileMap
-
-onready var cursor = $Icon
+class_name EditableMap
 
 func _ready():
+	
 	pass
 
 func _process(delta):
+	pass
 	#evil position hack
-	cursor.position=map_to_world(world_to_map(get_local_mouse_position()))
-	
-	if Input.is_action_pressed("mouse_down"):
-		#print("ye")
+	#cursor.position=map_to_world(world_to_map(get_local_mouse_position()))
+
+func add_tile(position:Vector2):
+	var current_val = get_cellv(position)
+	#print(current_val,' ',Globals.current_item)
+	if current_val!=Globals.current_item and Globals.current_item!=-1:
 		
-		if get_cellv(world_to_map(get_local_mouse_position()))!=0 && Globals.currentItem!=-1:
-			
-			var itemid = Globals.currentItem
-			
-			set_cellv(world_to_map(get_local_mouse_position()),itemid)
-			
-			Globals.change_money(Globals.items[itemid][0],Globals.items[itemid][1])
+		var itemid = Globals.current_item
+		
+		if Globals.change_money(Values.items[itemid][0],Values.items[itemid][1]):
+			set_cellv(position,itemid)
+		
+
+func copy_data_into( map:TileMap):
+	for i in tile_set.get_tiles_ids():
+		for cell in get_used_cells_by_id(i):
+			map.set_cellv(cell,i)

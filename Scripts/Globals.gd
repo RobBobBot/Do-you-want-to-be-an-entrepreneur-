@@ -1,12 +1,15 @@
 extends Node
 
+const daytime_scene:PackedScene=preload("res://Scenes/DaytimeScene.tscn")
+const editor_scene:PackedScene=preload("res://Scenes/EditorScene.tscn")
+
 var money:int=10000
 var seconds:float=0
 var minutes:int=0
 var hours:int=0
 
 func _ready():
-	currentItem = 0
+	current_item = -1
 	
 func _process(delta):
 	seconds+=delta
@@ -24,20 +27,20 @@ func _process(delta):
 
 signal transaction
 
-func change_money(amount:int,item) -> void:
+func change_money(amount:int,item) -> bool:
+	if money+amount < 0 :
+		return false
 	money+=amount
 	emit_signal("transaction",amount,item)
+	return true
 	
 func _input(event):
 	if event is InputEventKey && event.scancode == KEY_ESCAPE:
 		change_current_item(-1)
 
-var currentItem = -1
-	
-const items = [
-	[-10,"Wooden floor",preload ("res://Sprites/wooden_floor.png")],
-	[-15,"Wooden wall",preload ("res://Sprites/wooden_wall.png") ]
-]
+var current_item = -1
 
-func change_current_item(var itemid):
-	currentItem = itemid
+func change_current_item(itemid):
+	current_item = itemid
+
+var active # 0-none, 1-floors, 2-walls, 3-objects
