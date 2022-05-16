@@ -17,8 +17,6 @@ func _process(delta):
 	map_pos=tile_map.world_to_map(get_global_mouse_position())
 	global_position=tile_map.map_to_world(map_pos)
 	
-	
-	
 	if placing:
 		tile_map.add_tile(map_pos)
 	
@@ -36,4 +34,4 @@ func update_sprite():
 	if Globals.current_item==-1:
 		$Sprite.set_texture(null)
 	else:
-		$Sprite.set_texture(Globals.items[Globals.current_item][2])
+		$Sprite.set_texture(Values.items[Globals.current_item][2])

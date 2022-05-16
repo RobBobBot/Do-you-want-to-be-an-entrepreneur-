@@ -17,9 +17,9 @@ func add_tile(position:Vector2):
 		
 		var itemid = Globals.current_item
 		
-		set_cellv(position,itemid)
+		if Globals.change_money(Values.items[itemid][0],Values.items[itemid][1]):
+			set_cellv(position,itemid)
 		
-		Globals.change_money(Globals.items[itemid][0],Globals.items[itemid][1])
 
 func copy_data_into( map:TileMap):
 	for i in tile_set.get_tiles_ids():

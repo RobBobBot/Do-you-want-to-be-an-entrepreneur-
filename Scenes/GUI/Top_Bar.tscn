@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Money.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Time.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Finances.gd" type="Script" id=3]
+
+[node name="Top_Bar" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 100.0
+
+[node name="Finances" type="VBoxContainer" parent="."]
+margin_right = 150.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 150, 30 )
+script = ExtResource( 3 )
+
+[node name="PanelContainer" type="PanelContainer" parent="Finances"]
+margin_right = 150.0
+margin_bottom = 28.0
+size_flags_vertical = 0
+
+[node name="Money" type="Label" parent="Finances/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 143.0
+margin_bottom = 21.0
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "100000 Euro"
+align = 1
+script = ExtResource( 1 )
+
+[node name="Clients" type="PanelContainer" parent="."]
+margin_left = 154.0
+margin_right = 254.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 100, 30 )
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Clients"]
+margin_left = 7.0
+margin_top = 8.0
+margin_right = 93.0
+margin_bottom = 22.0
+text = "0 Clients"
+align = 1
+
+[node name="Time" type="PanelContainer" parent="."]
+margin_left = 258.0
+margin_right = 308.0
+margin_bottom = 28.0
+size_flags_vertical = 0
+
+[node name="time" type="Label" parent="Time"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 43.0
+margin_bottom = 21.0
+text = "00:00"
+script = ExtResource( 2 )
