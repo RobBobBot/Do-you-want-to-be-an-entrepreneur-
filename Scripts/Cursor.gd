@@ -19,9 +19,7 @@ func _process(delta):
 	
 	if placing:
 		tile_map.add_tile(map_pos)
-	
-	
-	
+
 	update_sprite()
 
 func on_mouse_down_in_editor():
@@ -35,3 +33,5 @@ func update_sprite():
 		$Sprite.set_texture(null)
 	else:
 		$Sprite.set_texture(Values.items[Globals.current_item][2])
+		$Sprite.offset.x=Values.items[Globals.current_item][3]
+		$Sprite.offset.y=Values.items[Globals.current_item][4]

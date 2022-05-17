@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PrimalMan.png-9fc0791249a0aaa1e7c0204a3ce97e91.stex"
+path="res://.import/PrimalMan.png-7c4497b545ba2e42ce2978e74e113b10.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PrimalMan.png"
-dest_files=[ "res://.import/PrimalMan.png-9fc0791249a0aaa1e7c0204a3ce97e91.stex" ]
+source_file="res://Sprites/PrimalMan.png"
+dest_files=[ "res://.import/PrimalMan.png-7c4497b545ba2e42ce2978e74e113b10.stex" ]
 
 [params]
 
