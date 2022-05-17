@@ -33,5 +33,5 @@ func update_sprite():
 		$Sprite.set_texture(null)
 	else:
 		$Sprite.set_texture(Values.items[Globals.current_item][2])
-		$Sprite.offset.x=Values.items[Globals.current_item][3]
-		$Sprite.offset.y=Values.items[Globals.current_item][4]
+		$Sprite.offset.y=-($Sprite.texture.get_size().y-32)
+		$Sprite.offset.x=-($Sprite.texture.get_size().x-32)

@@ -2,6 +2,7 @@ extends Node
 
 const daytime_scene:PackedScene=preload("res://Scenes/DaytimeScene.tscn")
 const editor_scene:PackedScene=preload("res://Scenes/EditorScene.tscn")
+const market_scene:PackedScene=preload("res://Scenes/Market/Market.tscn")
 
 var money:int=10000
 var seconds:float=0

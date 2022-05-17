@@ -52,6 +52,7 @@ size_flags_vertical = 8
 
 [node name="Walls" parent="CanvasLayer/Items" instance=ExtResource( 5 )]
 margin_left = 257.0
+margin_top = 0.0
 margin_right = 510.0
 margin_bottom = 188.0
 size_flags_horizontal = 3
@@ -76,3 +77,4 @@ size_flags_vertical = 8
 text = "Stock"
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Items/Button" to="." method="_Market_button_pressed"]
