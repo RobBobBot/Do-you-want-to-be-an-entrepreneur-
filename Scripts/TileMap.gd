@@ -6,6 +6,7 @@ func _ready():
 	pass
 
 func _process(delta):
+	Values.tiles=tile_set
 	pass
 	#evil position hack
 	#cursor.position=map_to_world(world_to_map(get_local_mouse_position()))
@@ -22,6 +23,6 @@ func add_tile(position:Vector2):
 		
 
 func copy_data_into( map:TileMap):
-	for i in tile_set.get_tiles_ids():
+	for i in Values.tiles.get_tiles_ids():
 		for cell in get_used_cells_by_id(i):
 			map.set_cellv(cell,i)

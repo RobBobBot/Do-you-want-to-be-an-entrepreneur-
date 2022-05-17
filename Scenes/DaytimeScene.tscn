@@ -13,15 +13,9 @@ script = ExtResource( 2 )
 [node name="DaytimeUI" type="Control" parent="GUILayer"]
 margin_right = 40.0
 margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button" type="Button" parent="GUILayer/DaytimeUI"]
 anchor_right = 5.4
 anchor_bottom = 1.275
 margin_bottom = -3.8147e-06
 text = "Go to editor"
-__meta__ = {
-"_edit_use_anchors_": false
-}
