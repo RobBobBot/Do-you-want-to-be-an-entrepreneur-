@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "EditableMap",
 "language": "GDScript",
 "path": "res://Scripts/TileMap.gd"
+}, {
+"base": "Node2D",
+"class": "Man",
+"language": "GDScript",
+"path": "res://Scripts/Man.gd"
 } ]
 _global_script_class_icons={
-"EditableMap": ""
+"EditableMap": "",
+"Man": ""
 }
 
 [application]

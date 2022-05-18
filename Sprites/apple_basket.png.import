@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PrimalMan.png-9fc0791249a0aaa1e7c0204a3ce97e91.stex"
+path="res://.import/apple_basket.png-67f537ffe41cf7a0889623a4218ed9c8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PrimalMan.png"
-dest_files=[ "res://.import/PrimalMan.png-9fc0791249a0aaa1e7c0204a3ce97e91.stex" ]
+source_file="res://Sprites/apple_basket.png"
+dest_files=[ "res://.import/apple_basket.png-67f537ffe41cf7a0889623a4218ed9c8.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

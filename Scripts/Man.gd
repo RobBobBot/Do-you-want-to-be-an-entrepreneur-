@@ -1,4 +1,5 @@
 extends Node2D
+class_name Man
 
 export var floor_map_path:NodePath
 export var wall_map_path:NodePath
@@ -14,13 +15,17 @@ const SOUTH=Vector2(0,1)
 const EAST=Vector2(1,0)
 const WEST=Vector2(-1,0)
 
+onready var sprite_mover=$SpriteMover
+onready var animation_player=$AnimationPlayer
+onready var sprite=$Sprite
+
 
 var move_stack:Array # e defapt queue
 
 func _ready():
 	
 	
-	$SpriteMover.start()
+	sprite_mover.start()
 	
 	floor_map=get_node(floor_map_path)
 	wall_map=get_node(wall_map_path)
@@ -82,12 +87,12 @@ func make_path_to_target(tar:Vector2): #foloseste lee ca sa updateze vectorul de
 
 func move_to_next():
 	if move_stack.size()>0:
-		$AnimationPlayer.play("move")
+		animation_player.play("move")
 		var dir=move_stack.front()
 		move_stack.pop_front()
 		move(dir)
 	else:
-		$AnimationPlayer.stop()
+		animation_player.stop()
 
 func move(dir:Vector2):
 	var change:Vector2=Vector2(32,16) #change of sprite position
@@ -96,13 +101,13 @@ func move(dir:Vector2):
 	
 	x+=dir.x
 	y+=dir.y
-	$SpriteMover.interpolate_property($Sprite, "position", Vector2.ZERO, change, 0.5)
+	sprite_mover.interpolate_property($Sprite, "position", Vector2.ZERO, change, 0.5)
 	
 
 
 
 func _on_SpriteMover_tween_completed(object, key): #cand s-a terminat tranzitia, se misca catre urmatorul pe care il vrea
 	#print("bro")
-	$Sprite.position=Vector2.ZERO
+	sprite.position=Vector2.ZERO
 	update_position()
 	move_to_next()

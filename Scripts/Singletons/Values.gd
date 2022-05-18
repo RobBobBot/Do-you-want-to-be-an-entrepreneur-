@@ -5,9 +5,11 @@ const items = [
 	[-15,"Wooden wall",preload ("res://Sprites/wooden_wall.png") ]
 ]
 
-const products = [
-	[-1,"Apple"]
-]
+const products = {
+	"apple":[-1,"Apple"],
+	"banana":[-2,"Banana"],
+	"blueberry":[-3,"Blueberry"]
+}
 
 var stock = []
 
