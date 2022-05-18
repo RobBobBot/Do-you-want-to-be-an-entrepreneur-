@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 func _on_Button_pressed():
 	var editor=Globals.editor_scene.instance()

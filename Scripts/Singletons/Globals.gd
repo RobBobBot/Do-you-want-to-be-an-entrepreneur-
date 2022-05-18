@@ -44,4 +44,4 @@ var current_item = -1
 func change_current_item(itemid):
 	current_item = itemid
 
-var active # 0-none, 1-floors, 2-walls, 3-objects
+var active # 0-none, 1-floors, 2-walls, 3-objects 4-employees
