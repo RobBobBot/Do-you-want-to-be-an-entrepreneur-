@@ -7,6 +7,7 @@ func _ready():
 
 func _process(delta):
 	pass
+	Values.tiles=tile_set
 	#evil position hack
 	#cursor.position=map_to_world(world_to_map(get_local_mouse_position()))
 

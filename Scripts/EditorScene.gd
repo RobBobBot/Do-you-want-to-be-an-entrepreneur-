@@ -11,6 +11,7 @@ func go_to_daytime():
 	var daytime=Globals.daytime_scene.instance()
 	get_parent().add_child(daytime)
 	$TileMap.copy_data_into(daytime.get_node("TileMap"))
+	daytime.get_node("TileMap").remake_baskets()
 	queue_free()
 
 func go_to_market():

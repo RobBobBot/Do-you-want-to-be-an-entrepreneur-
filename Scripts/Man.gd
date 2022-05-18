@@ -2,9 +2,7 @@ extends Node2D
 class_name Man
 
 export var floor_map_path:NodePath
-export var wall_map_path:NodePath
 var floor_map:TileMap
-var wall_map:TileMap
 
 export var x:int
 export var y:int
@@ -23,17 +21,13 @@ onready var sprite=$Sprite
 var move_stack:Array # e defapt queue
 
 func _ready():
-	
-	
+	begin()
+
+func begin():
 	sprite_mover.start()
-	
+	sprite_mover.connect("tween_completed",self,"_on_SpriteMover_tween_completed")
 	floor_map=get_node(floor_map_path)
-	wall_map=get_node(wall_map_path)
-	
-	make_path_to_target(Vector2(10,10))
-	
 	update_position()
-	move_to_next()
 	
 
 func _process(delta):
@@ -48,7 +42,7 @@ func update_position():
 
 
 func make_path_to_target(tar:Vector2): #foloseste lee ca sa updateze vectorul de miscare
-	
+	print(tar)
 	var queue:Array
 	var dir:Dictionary
 	queue.push_back(Vector2(x,y))
@@ -56,12 +50,14 @@ func make_path_to_target(tar:Vector2): #foloseste lee ca sa updateze vectorul de
 	
 	#$Icon.global_position=floor_map.map_to_world(Vector2(x,y))
 	
+	var wall_id=Values.tiles.find_tile_by_name("Wall")
+	
 	while !queue.empty():
 		var current:Vector2=queue.front()
 		queue.pop_front()
 		if current==tar:
 			break
-		if floor_map.get_cell(current.x,current.y) != TileMap.INVALID_CELL:
+		if floor_map.get_cell(current.x,current.y) != TileMap.INVALID_CELL and floor_map.get_cell(current.x,current.y) != wall_id:
 			if !dir.has(current+EAST):
 				dir[current+EAST]=EAST
 				queue.push_back(current+EAST)
@@ -81,7 +77,7 @@ func make_path_to_target(tar:Vector2): #foloseste lee ca sa updateze vectorul de
 		while current!=Vector2(x,y):
 			move_stack.push_front(dir[current])
 			current-=dir[current]
-	print(move_stack)
+	#print(move_stack)
 
 
 
@@ -101,7 +97,9 @@ func move(dir:Vector2):
 	
 	x+=dir.x
 	y+=dir.y
-	sprite_mover.interpolate_property($Sprite, "position", Vector2.ZERO, change, 0.5)
+	sprite_mover.interpolate_property(sprite, "position", Vector2.ZERO, change, 0.5)
+	sprite_mover.start()
+	#print(x,' ',y)
 	
 
 
