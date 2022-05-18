@@ -11,14 +11,20 @@ const products = [
 	[-1,"Apple"]
 ]
 
-var stock = []
+var stock = [
+	
+]
 
-var display = []
+var display = [
+	
+]
 
 func _ready():
 	for i in products.size():
 		stock.append(0)
 		display.append(0)
-
-var tiles:TileSet
+		
+var tiles = {
+	
+}
 

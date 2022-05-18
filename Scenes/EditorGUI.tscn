@@ -16,23 +16,23 @@ script = ExtResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="Top" type="HBoxContainer" parent="CanvasLayer"]
 anchor_right = 1.0
 margin_bottom = 52.0
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Top"]
 margin_left = 412.0
 margin_right = 612.0
 margin_bottom = 52.0
 rect_min_size = Vector2( 200, 0 )
 
-[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="CanvasLayer/Top/VBoxContainer"]
 margin_right = 200.0
 margin_bottom = 20.0
 text = "Next day"
 
-[node name="Finances" parent="CanvasLayer/HBoxContainer/VBoxContainer" instance=ExtResource( 1 )]
+[node name="Finances" parent="CanvasLayer/Top/VBoxContainer" instance=ExtResource( 1 )]
 margin_top = 24.0
 margin_right = 200.0
 margin_bottom = 52.0
@@ -84,5 +84,5 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 text = "Stock"
 
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Top/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Items/Button" to="." method="_Market_button_pressed"]
