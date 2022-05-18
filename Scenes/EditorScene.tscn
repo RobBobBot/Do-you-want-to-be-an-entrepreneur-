@@ -36,3 +36,5 @@ custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 
 [node name="GUI" parent="GUILayer" instance=ExtResource( 3 )]
+
+[connection signal="pressed" from="GUILayer/MouseCatcher" to="TilePlacer" method="_on_MouseCatcher_pressed"]

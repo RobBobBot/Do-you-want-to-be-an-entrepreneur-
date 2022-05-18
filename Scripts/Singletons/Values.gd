@@ -24,7 +24,7 @@ func _ready():
 		stock.append(0)
 		display.append(0)
 		
-var tiles = {
+var tiles:Dictionary = {
 	
 }
 
