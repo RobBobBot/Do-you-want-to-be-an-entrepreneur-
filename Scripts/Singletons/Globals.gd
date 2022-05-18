@@ -2,6 +2,7 @@ extends Node
 
 const daytime_scene:PackedScene=preload("res://Scenes/DaytimeScene.tscn")
 const editor_scene:PackedScene=preload("res://Scenes/EditorScene.tscn")
+const market_scene:PackedScene=preload("res://Scenes/Market/Market.tscn")
 
 var money:int=10000
 var seconds:float=0
@@ -46,4 +47,4 @@ var current_item = -1
 func change_current_item(itemid):
 	current_item = itemid
 
-var active # 0-none, 1-floors, 2-walls, 3-objects
+var active # 0-none, 1-floors, 2-walls, 3-objects 4-employees

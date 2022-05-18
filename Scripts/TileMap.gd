@@ -22,6 +22,6 @@ func add_tile(position:Vector2):
 		
 
 func copy_data_into( map:TileMap):
-	for i in tile_set.get_tiles_ids():
+	for i in Values.tiles.get_tiles_ids():
 		for cell in get_used_cells_by_id(i):
 			map.set_cellv(cell,i)
