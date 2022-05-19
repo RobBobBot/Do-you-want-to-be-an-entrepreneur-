@@ -97,7 +97,7 @@ func move(dir:Vector2):
 	
 	x+=dir.x
 	y+=dir.y
-	sprite_mover.interpolate_property(sprite, "position", Vector2.ZERO, change, 0.5)
+	sprite_mover.interpolate_property(sprite, "position", Vector2.ZERO, change, 1)
 	sprite_mover.start()
 	#print(x,' ',y)
 	

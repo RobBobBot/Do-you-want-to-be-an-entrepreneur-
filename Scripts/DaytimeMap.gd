@@ -27,7 +27,8 @@ func remake_baskets():
 		add_child(bas)
 
 func _process(delta):
-	print(get_cellv(world_to_map(get_local_mouse_position())))
+	pass
+	#print(get_cellv(world_to_map(get_local_mouse_position())))
 
 func get_good_basket(wanted_item:int):
 	for bas in baskets:
