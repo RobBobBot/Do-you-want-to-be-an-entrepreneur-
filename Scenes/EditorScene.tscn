@@ -35,9 +35,6 @@ custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="GUI" parent="GUILayer" instance=ExtResource( 3 )]
 

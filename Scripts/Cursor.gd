@@ -34,10 +34,11 @@ func _on_MouseCatcher_pressed():
 	
 
 func clicked_on_storage(var position:Vector2) -> bool:
-	position = position.floor()
-	if Values.tiles.has(position) && Values.tiles[position][0] == "Basket":
-		return true
 	return false
+	position = position.floor()
+#	if Values.tiles.has(position) && Values.tiles[position][0] == "Basket":
+#		return true
+#	return false
 	pass
 
 func update_sprite():
