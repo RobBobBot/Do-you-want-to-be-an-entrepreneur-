@@ -24,4 +24,8 @@ margin_right = -32.0
 margin_bottom = -32.0
 custom_styles/normal = SubResource( 1 )
 button_mask = 2
+text = "press here!"
 items = [ "(empty)", null, 0, false, false, 0, 0, null, "", false, "Apple", null, 0, false, false, 1, 0, null, "", false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}

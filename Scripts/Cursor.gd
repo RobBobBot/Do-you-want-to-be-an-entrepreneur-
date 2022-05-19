@@ -41,6 +41,7 @@ func clicked_on_storage(var position:Vector2) -> bool:
 #	return false
 	pass
 
+
 func update_sprite():
 	if Globals.current_item==-1:
 		$Sprite.set_texture(null)

@@ -1,10 +1,12 @@
 extends Node
 
-const daytime_scene:PackedScene=preload("res://Scenes/DaytimeScene.tscn")
-const editor_scene:PackedScene=preload("res://Scenes/EditorScene.tscn")
+const daytime_scene:PackedScene=preload("res://Scenes/Enviorments/DaytimeScene.tscn")
+const editor_scene:PackedScene=preload("res://Scenes/Enviorments/EditorScene.tscn")
 const market_scene:PackedScene=preload("res://Scenes/Market/Market.tscn")
 
-var money:int=100000
+const window_size=Vector2(1024,600)
+
+var money:int=10000
 var seconds:float=0
 var minutes:int=0
 var hours:int=0
@@ -49,6 +51,11 @@ func change_current_item(itemid):
 
 var active # 0-none, 1-floors, 2-walls, 3-objects 4-employees
 
+<<<<<<< HEAD
+
+
+=======
 func spawn_customer() -> bool:
 	return rng.randi_range(1,1000)<Values.popularity
 	pass
+>>>>>>> Robert
