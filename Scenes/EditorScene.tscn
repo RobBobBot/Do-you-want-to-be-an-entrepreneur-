@@ -40,3 +40,5 @@ __meta__ = {
 }
 
 [node name="GUI" parent="GUILayer" instance=ExtResource( 3 )]
+
+[connection signal="pressed" from="GUILayer/MouseCatcher" to="TilePlacer" method="_on_MouseCatcher_pressed"]

@@ -1,11 +1,8 @@
 extends Node2D
 
 func _ready():
-# warning-ignore:return_value_discarded
 	$GUILayer/GUI.connect("pressed",self,"go_to_daytime")
-# warning-ignore:return_value_discarded
 	$GUILayer/GUI.connect("market",self,"go_to_market")
-	pass # Replace with function body.
 
 func go_to_daytime():
 	var daytime=Globals.daytime_scene.instance()
@@ -17,12 +14,13 @@ func go_to_daytime():
 func go_to_market():
 	var market = Globals.market_scene.instance()
 	get_parent().add_child(market)
-	#queue_free()
+	hide_editor()
+
+func hide_editor():
 	visible=false
 	$GUILayer/GUI/CanvasLayer/Items.visible=false
 	$GUILayer/GUI/CanvasLayer/Top.visible=false
 	$GUILayer/MouseCatcher.visible=false
-	pass
 
 func show_editor():
 	visible=true
