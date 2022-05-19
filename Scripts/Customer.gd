@@ -37,18 +37,16 @@ func seek_basket():
 
 func move_to_next():
 	mood-=1
-	.move_to_next()
-
-func _process(delta):
-	match state:
-		seeking_item:
-			if move_stack.empty() and target and target.held_item!=0:
-				#print(target.held_item)
-				target.empty()
-				make_path_to_target(floor_map.exit_coords)
-				print(move_stack)
-				state=leaving
-				move_to_next()
-		leaving:
-			if move_stack.empty():
+	print(mood)
+	if move_stack.empty():
+		match state:
+			seeking_item:
+				if target:
+					target.empty()
+					make_path_to_target(floor_map.exit_coords)
+					print(move_stack)
+					state=leaving
+					#move_to_next()
+			leaving:
 				queue_free()
+	.move_to_next()
