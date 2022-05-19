@@ -43,3 +43,4 @@ func _ready():
 	
 var tiles:TileSet
 
+var popularity:int = 1

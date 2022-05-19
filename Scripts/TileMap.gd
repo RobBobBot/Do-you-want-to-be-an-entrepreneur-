@@ -22,6 +22,8 @@ func add_tile(position:Vector2):
 		if Globals.change_money(Values.items[itemid][0],Values.items[itemid][1]):
 			set_cellv(position,itemid)
 
+			#Values.tiles[position] = [Values.items[itemid][1],{}]
+
 func copy_data_into( map:TileMap):
 	for i in tile_set.get_tiles_ids():
 		for cell in get_used_cells_by_id(i):

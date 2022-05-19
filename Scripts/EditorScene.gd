@@ -3,6 +3,7 @@ extends Node2D
 const daytime_main_map_name="MainMap"
 
 func _ready():
+	Values.popularity=1
 	$GUILayer/GUI.connect("pressed",self,"go_to_daytime")
 	$GUILayer/GUI.connect("market",self,"go_to_market")
 

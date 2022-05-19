@@ -51,5 +51,11 @@ func change_current_item(itemid):
 
 var active # 0-none, 1-floors, 2-walls, 3-objects 4-employees
 
+<<<<<<< HEAD
 
 
+=======
+func spawn_customer() -> bool:
+	return rng.randi_range(1,1000)<Values.popularity
+	pass
+>>>>>>> Robert
