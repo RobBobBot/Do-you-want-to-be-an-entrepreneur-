@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	Values.popularity=1
 	$GUILayer/GUI.connect("pressed",self,"go_to_daytime")
 	$GUILayer/GUI.connect("market",self,"go_to_market")
 
