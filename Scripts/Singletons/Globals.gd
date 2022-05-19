@@ -6,7 +6,7 @@ const market_scene:PackedScene=preload("res://Scenes/Market/Market.tscn")
 
 const window_size=Vector2(1024,600)
 
-var money:int=10000
+var money:int=100000
 var seconds:float=0
 var minutes:int=0
 var hours:int=0
@@ -49,13 +49,9 @@ var current_item = -1
 func change_current_item(itemid):
 	current_item = itemid
 
-var active # 0-none, 1-floors, 2-walls, 3-objects 4-employees
+var active # 0-none, 1-floors, 2-walls, 3-objects 4-employees 5-Marketing
 
-<<<<<<< HEAD
-
-
-=======
 func spawn_customer() -> bool:
-	return rng.randi_range(1,1000)<Values.popularity
+	return rng.randf_range(0.0,1000.0)<Values.popularity
 	pass
->>>>>>> Robert
+
