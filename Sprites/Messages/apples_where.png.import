@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/apple_basket.png-67f537ffe41cf7a0889623a4218ed9c8.stex"
+path="res://.import/apples_where.png-9c48bbb59d029dee02143d8970f235ca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/apple_basket.png"
-dest_files=[ "res://.import/apple_basket.png-67f537ffe41cf7a0889623a4218ed9c8.stex" ]
+source_file="res://Sprites/Messages/apples_where.png"
+dest_files=[ "res://.import/apples_where.png-9c48bbb59d029dee02143d8970f235ca.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

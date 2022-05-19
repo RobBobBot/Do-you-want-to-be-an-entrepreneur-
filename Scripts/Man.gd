@@ -6,6 +6,7 @@ var floor_map:TileMap
 
 export var x:int
 export var y:int
+export var move_time:float=0.5
 
 
 const NORTH=Vector2(0,-1)
@@ -16,7 +17,6 @@ const WEST=Vector2(-1,0)
 onready var sprite_mover=$SpriteMover
 onready var animation_player=$AnimationPlayer
 onready var sprite=$Sprite
-
 
 var move_stack:Array # e defapt queue
 
@@ -41,12 +41,12 @@ func update_position():
 
 
 
-func make_path_to_target(tar:Vector2): #foloseste lee ca sa updateze vectorul de miscare
+func make_path_to_target(tar:Vector2, del_last:bool=0): #foloseste lee ca sa updateze vectorul de miscare
 	print(tar)
 	var queue:Array
 	var dir:Dictionary
 	queue.push_back(Vector2(x,y))
-	dir[queue.front()]=-1
+	dir[queue.front()]=Vector2(0,0)
 	
 	#$Icon.global_position=floor_map.map_to_world(Vector2(x,y))
 	
@@ -58,22 +58,18 @@ func make_path_to_target(tar:Vector2): #foloseste lee ca sa updateze vectorul de
 		if current==tar:
 			break
 		if floor_map.get_cell(current.x,current.y) != TileMap.INVALID_CELL and floor_map.get_cell(current.x,current.y) != wall_id:
-			if !dir.has(current+EAST):
-				dir[current+EAST]=EAST
-				queue.push_back(current+EAST)
-			if !dir.has(current+NORTH):
-				dir[current+NORTH]=NORTH
-				queue.push_back(current+NORTH)
-			if !dir.has(current+WEST):
-				dir[current+WEST]=WEST
-				queue.push_back(current+WEST)
-			if !dir.has(current+SOUTH):
-				dir[current+SOUTH]=SOUTH
-				queue.push_back(current+SOUTH)
+			var possible_moves=[NORTH,SOUTH,EAST,WEST]
+			possible_moves.shuffle()
+			for direction in possible_moves:
+				if !dir.has(current+direction):
+					dir[current+direction]=direction
+					queue.push_back(current+direction)
 	
 	if dir.has(tar):
 		move_stack.clear()
 		var current:Vector2=tar
+		if del_last:
+			current-=dir[current]
 		while current!=Vector2(x,y):
 			move_stack.push_front(dir[current])
 			current-=dir[current]
@@ -97,7 +93,7 @@ func move(dir:Vector2):
 	
 	x+=dir.x
 	y+=dir.y
-	sprite_mover.interpolate_property(sprite, "position", Vector2.ZERO, change, 1)
+	sprite_mover.interpolate_property(sprite, "position", Vector2.ZERO, change, move_time)
 	sprite_mover.start()
 	#print(x,' ',y)
 	

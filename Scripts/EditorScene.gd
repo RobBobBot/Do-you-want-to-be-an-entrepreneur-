@@ -1,5 +1,7 @@
 extends Node2D
 
+const daytime_main_map_name="MainMap"
+
 func _ready():
 	$GUILayer/GUI.connect("pressed",self,"go_to_daytime")
 	$GUILayer/GUI.connect("market",self,"go_to_market")
@@ -7,8 +9,9 @@ func _ready():
 func go_to_daytime():
 	var daytime=Globals.daytime_scene.instance()
 	get_parent().add_child(daytime)
-	$TileMap.copy_data_into(daytime.get_node("TileMap"))
-	daytime.get_node("TileMap").remake_baskets()
+	$TileMap.copy_data_into(daytime.get_node(daytime_main_map_name))
+	daytime.get_node(daytime_main_map_name).remake_baskets()
+	daytime.get_node(daytime_main_map_name).remake_walls()
 	queue_free()
 
 func go_to_market():

@@ -1,0 +1,108 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Tilesets/mainFloor.tres" type="TileSet" id=1]
+[ext_resource path="res://Scripts/DaytimeScene.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/DaytimeMap.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/People/Customer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/GUI/Finances.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Background.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/light_mask.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/People/Emplyee.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.00990099, 0.118812, 0.430693, 0.569307, 0.673267, 0.836634 )
+colors = PoolColorArray( 0.25098, 0.239216, 0.490196, 1, 0, 0.53125, 1, 1, 0, 0.601563, 1, 1, 0.0271301, 0.539817, 0.992188, 1, 0.25098, 0.239216, 0.490196, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 5
+
+[node name="DaytimeScene" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="BgLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Sprite" parent="BgLayer"]
+rotation = 1.5708
+scale = Vector2( 1000, -1024 )
+z_index = -1
+texture = SubResource( 2 )
+centered = false
+script = ExtResource( 6 )
+
+[node name="MainMap" type="TileMap" parent="."]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 32 )
+cell_y_sort = true
+format = 1
+script = ExtResource( 3 )
+wall_map_path = NodePath("../WallMap")
+
+[node name="WallMap" type="TileMap" parent="."]
+light_mask = 2
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 32 )
+cell_y_sort = true
+occluder_light_mask = 0
+format = 1
+
+[node name="Customer" parent="WallMap" instance=ExtResource( 4 )]
+position = Vector2( 257, 301 )
+floor_map_path = NodePath("../../MainMap")
+
+[node name="Emplyee" parent="WallMap" instance=ExtResource( 8 )]
+floor_map_path = NodePath("../../MainMap")
+
+[node name="GUILayer" type="CanvasLayer" parent="."]
+
+[node name="DaytimeUI" type="Control" parent="GUILayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUILayer/DaytimeUI"]
+anchor_right = 1.0
+anchor_bottom = 0.067
+margin_bottom = -0.200001
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="GUILayer/DaytimeUI/HBoxContainer"]
+margin_right = 408.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Go to editor"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Finances" parent="GUILayer/DaytimeUI/HBoxContainer" instance=ExtResource( 5 )]
+margin_left = 412.0
+margin_right = 612.0
+
+[node name="HideWalls" type="Button" parent="GUILayer/DaytimeUI/HBoxContainer"]
+margin_left = 616.0
+margin_right = 1024.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Hide Walls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WallHider" type="Light2D" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+mode = 3
+range_item_cull_mask = 2
+shadow_item_cull_mask = 2
+
+[connection signal="pressed" from="GUILayer/DaytimeUI/HBoxContainer/HideWalls" to="." method="_on_HideWalls_pressed"]

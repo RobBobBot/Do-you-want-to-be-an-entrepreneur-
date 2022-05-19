@@ -31,6 +31,13 @@ var display = {
 	BLUEBERRY:0
 }
 
+var sell_cost = {
+	APPLE:10,
+	BANANA:30,
+	BLUEBERRY:60
+	
+}
+
 func _ready():
 	pass
 	

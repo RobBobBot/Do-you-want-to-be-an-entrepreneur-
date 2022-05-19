@@ -26,19 +26,6 @@ func on_mouse_down_in_editor():
 
 func on_mouse_up_in_editor():
 	placing=false
-	
-func _on_MouseCatcher_pressed():
-	if Globals.current_item==-1 and clicked_on_storage(map_pos):
-		print("here")
-		pass
-	
-
-func clicked_on_storage(var position:Vector2) -> bool:
-	position = position.floor()
-	if Values.tiles.has(position) && Values.tiles[position][0] == "Basket":
-		return true
-	return false
-	pass
 
 func update_sprite():
 	if Globals.current_item==-1:
