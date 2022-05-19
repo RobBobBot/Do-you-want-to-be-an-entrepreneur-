@@ -5,10 +5,11 @@ extends TileMap
 # var a = 2
 # var b = "text"
 export var basket:PackedScene=preload("res://Scenes/Basket.tscn")
+export var emplyee:PackedScene=preload("res://Scenes/People/Emplyee.tscn")
 export var wall_map_path:NodePath
 onready var wall_map:TileMap=get_node(wall_map_path)
 var baskets=[]
-
+var emplyees=[]
 const wall_names=["wall","wall_tall"]
 
 var exit_coords:Vector2
@@ -22,6 +23,15 @@ func remake_walls():
 		for cell in get_used_cells_by_id(id):
 			wall_map.set_cellv(cell,id)
 			set_cellv(cell,-1)
+
+func add_emplyees():
+	for arr in Values.emplyees:
+		var emp=emplyee.instance()
+		emp.floor_map_path=get_path()
+		emp.take_values_from_vector(arr)
+		emplyees.push_back(emp)
+		wall_map.add_child(emp)
+		#print("here")
 
 func remake_baskets():
 	for cell in get_used_cells_by_id(tile_set.find_tile_by_name("door")):
@@ -44,5 +54,11 @@ func get_good_basket(wanted_item:int):
 	for bas in baskets:
 		if bas.held_item==wanted_item:
 			return bas
+	return null
+
+func get_free_emplyee():
+	for emp in emplyees:
+		if emp.state == Emplyee.idle:
+			return emp
 	return null
 

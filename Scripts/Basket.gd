@@ -12,10 +12,12 @@ var sprites=[
 
 func _ready():
 	$Sprite/EmptyBasket.texture=sprites[held_item]
+	Values.display[held_item]+=1
 	pass # Replace with function body.
 
 func empty():
 	#held_item=1
-	Globals.change_money(-Values.products[held_item][0]," apples bought")
+	Globals.change_money(-Values.sell_cost[held_item]," apples bought")
+	Values.display[held_item]-=1
 	held_item=0
 	$Sprite/EmptyBasket.texture=sprites[held_item]

@@ -38,6 +38,13 @@ var sell_cost = {
 	
 }
 
+
+var emplyees = [
+	[0,0,0.5,0.5,0.5,"Emplyee"]
+	
+	
+]
+
 func _ready():
 	pass
 	
