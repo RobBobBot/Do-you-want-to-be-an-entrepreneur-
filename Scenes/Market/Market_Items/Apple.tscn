@@ -11,6 +11,9 @@ hint_tooltip = "An apple a day keeps 9/10 doctors away!"
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Body" type="VBoxContainer" parent="."]
 margin_left = 7.0
@@ -68,4 +71,4 @@ margin_right = 136.0
 margin_bottom = 188.0
 text = "Buy"
 
-[connection signal="pressed" from="Body/Button" to="Body/LineEdit" method="_on_Button_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="Body/Button" to="Body/LineEdit" method="_on_Button_pressed" binds= [ "apple" ]]

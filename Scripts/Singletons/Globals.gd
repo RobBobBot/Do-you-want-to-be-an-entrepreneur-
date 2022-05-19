@@ -9,7 +9,10 @@ var seconds:float=0
 var minutes:int=0
 var hours:int=0
 
+var rng:RandomNumberGenerator=RandomNumberGenerator.new()
+
 func _ready():
+	rng.randomize()
 	current_item = -1
 	
 func _process(delta):

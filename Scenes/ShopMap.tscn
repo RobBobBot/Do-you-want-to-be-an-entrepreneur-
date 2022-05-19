@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/TileMap.gd" type="Script" id=2]
 [ext_resource path="res://Tilesets/mainFloor.tres" type="TileSet" id=4]
 
-[node name="TileMap" type="TileMap"]
+[node name="ShopMap" type="TileMap"]
 mode = 1
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 64, 32 )

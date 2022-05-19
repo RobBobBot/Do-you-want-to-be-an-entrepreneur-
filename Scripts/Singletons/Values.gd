@@ -7,18 +7,32 @@ const items = [
 	[-100,"Basket", preload ("res://Sprites/empty_basket.png")]
 ]
 
-const products = [
-	[-1,"Apple"]
-]
+enum {
+	APPLE=1,
+	BANANA=2,
+	BLUEBERRY=3
+}
 
-var stock = []
+const products = {
+	APPLE:[-1,"Apple"],
+	BANANA:[-2,"Banana"],
+	BLUEBERRY:[-3,"Blueberry"]
+}
 
-var display = []
+var stock = {
+	APPLE:0,
+	BANANA:0,
+	BLUEBERRY:0
+}
+
+var display = {
+	APPLE:0,
+	BANANA:0,
+	BLUEBERRY:0
+}
 
 func _ready():
-	for i in products.size():
-		stock.append(0)
-		display.append(0)
-
+	pass
+	
 var tiles:TileSet
 
