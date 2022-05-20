@@ -50,6 +50,4 @@ func _ready():
 	
 var tiles:TileSet
 
-var popularity:float = 1.0
-
-var offset_popularity:float = 0.0
+var popularity:int = 1
