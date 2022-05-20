@@ -13,6 +13,7 @@ func go_to_daytime():
 	$TileMap.copy_data_into(daytime.get_node(daytime_main_map_name))
 	daytime.get_node(daytime_main_map_name).remake_baskets()
 	daytime.get_node(daytime_main_map_name).remake_walls()
+	daytime.get_node(daytime_main_map_name).add_emplyees()
 	queue_free()
 
 func go_to_market():
