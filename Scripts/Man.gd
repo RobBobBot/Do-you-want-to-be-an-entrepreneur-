@@ -7,16 +7,20 @@ var floor_map:TileMap
 export var x:int
 export var y:int
 export var move_time:float=0.5
+export var idle_chance:float=0.2
 
+export var message:PackedScene=preload("res://Scenes/Message.tscn")
+export var talk_time=1
 
 const NORTH=Vector2(0,-1)
 const SOUTH=Vector2(0,1)
 const EAST=Vector2(1,0)
 const WEST=Vector2(-1,0)
-
-onready var sprite_mover=$SpriteMover
+const IDLE=Vector2(0,0)
+onready var sprite_mover
 onready var animation_player=$AnimationPlayer
 onready var sprite=$Sprite
+const emote_x=2
 
 var move_stack:Array # e defapt queue
 
@@ -66,16 +70,27 @@ func make_path_to_target(tar:Vector2, del_last:bool=0): #foloseste lee ca sa upd
 					queue.push_back(current+direction)
 	
 	if dir.has(tar):
-		move_stack.clear()
+		#move_stack.clear()
 		var current:Vector2=tar
 		if del_last:
 			current-=dir[current]
+		
 		while current!=Vector2(x,y):
+			
 			move_stack.push_front(dir[current])
+			if Globals.rng.randf_range(0,1)<idle_chance:
+				move_stack.push_front(IDLE)
 			current-=dir[current]
 	#print(move_stack)
 
-
+func show_message(message_val:int,wait_for_completion:bool=false):
+	if wait_for_completion:
+		move_stack.push_front(Vector2(emote_x,message_val)) #cod secret
+		return
+	var mes=message.instance()
+	mes.message=message_val
+	mes.time=talk_time
+	$Sprite.add_child(mes)
 
 func move_to_next():
 	if move_stack.size()>0:
@@ -87,6 +102,11 @@ func move_to_next():
 		animation_player.stop()
 
 func move(dir:Vector2):
+	if dir.x==emote_x:
+		sprite_mover.interpolate_property(sprite, "position", Vector2.ZERO, Vector2.ZERO, talk_time)
+		sprite_mover.start()
+		show_message(dir.y)
+		return
 	var change:Vector2=Vector2(32,16) #change of sprite position
 	change.y*=(dir.y+dir.x)
 	change.x*=(dir.x-dir.y)

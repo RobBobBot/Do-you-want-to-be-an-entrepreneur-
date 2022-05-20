@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/apples_where.png-9c48bbb59d029dee02143d8970f235ca.stex"
+path="res://.import/no.png-a536fa614ea0dfdca0098adad0d7c34c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Messages/apples_where.png"
-dest_files=[ "res://.import/apples_where.png-9c48bbb59d029dee02143d8970f235ca.stex" ]
+source_file="res://Sprites/Messages/no.png"
+dest_files=[ "res://.import/no.png-a536fa614ea0dfdca0098adad0d7c34c.stex" ]
 
 [params]
 

@@ -1,4 +1,5 @@
-[gd_scene load_steps=12 format=2]
+
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tilesets/mainFloor.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/DaytimeScene.gd" type="Script" id=2]
@@ -7,8 +8,6 @@
 [ext_resource path="res://Scenes/GUI/Finances.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Background.gd" type="Script" id=6]
 [ext_resource path="res://Sprites/light_mask.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/People/Emplyee.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/GUI/Top_Bar.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.00990099, 0.118812, 0.430693, 0.569307, 0.673267, 0.836634 )
@@ -54,15 +53,16 @@ format = 1
 position = Vector2( 257, 301 )
 floor_map_path = NodePath("../../MainMap")
 
-[node name="Emplyee" parent="WallMap" instance=ExtResource( 8 )]
-floor_map_path = NodePath("../../MainMap")
-
 [node name="GUILayer" type="CanvasLayer" parent="."]
 
 [node name="DaytimeUI" type="Control" parent="GUILayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
+
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUILayer/DaytimeUI"]
 anchor_right = 1.0
