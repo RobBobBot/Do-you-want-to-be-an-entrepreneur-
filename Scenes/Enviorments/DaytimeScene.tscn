@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Tilesets/mainFloor.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/DaytimeScene.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scripts/Background.gd" type="Script" id=6]
 [ext_resource path="res://Sprites/light_mask.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/GUI/Top_Bar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/End_day_button.gd" type="Script" id=9]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.00990099, 0.118812, 0.430693, 0.569307, 0.673267, 0.836634 )
@@ -71,7 +72,8 @@ margin_bottom = 20.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 0
-text = "Go to editor"
+text = "End day"
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -86,6 +88,7 @@ anchor_right = 0.0
 margin_left = 333.0
 margin_right = 691.0
 margin_bottom = 40.0
+size_flags_horizontal = 5
 
 [node name="HideWalls" type="Button" parent="GUILayer/DaytimeUI/HBoxContainer"]
 margin_left = 695.0

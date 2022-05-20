@@ -37,7 +37,7 @@ rect_min_size = Vector2( 200, 0 )
 [node name="Button" type="Button" parent="CanvasLayer/Top/VBoxContainer"]
 margin_right = 200.0
 margin_bottom = 20.0
-text = "Next day"
+text = "Start day"
 
 [node name="Finances" parent="CanvasLayer/Top/VBoxContainer" instance=ExtResource( 1 )]
 margin_top = 24.0

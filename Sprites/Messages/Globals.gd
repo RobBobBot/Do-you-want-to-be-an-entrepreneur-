@@ -18,18 +18,7 @@ func _ready():
 	current_item = -1
 	
 func _process(delta):
-	seconds+=delta
-	
-	if seconds>=1:
-		seconds=0
-		minutes+=1
-		
-	if minutes==60:
-		minutes=0
-		hours+=1
-	
-	if hours==24:
-		hours=0
+	pass
 
 signal transaction
 
@@ -43,6 +32,9 @@ func change_money(amount:int,item) -> bool:
 func _input(event):
 	if event is InputEventKey && event.scancode == KEY_ESCAPE:
 		change_current_item(-1)
+	
+	if event is InputEventKey && event.scancode == KEY_P:
+		minutes+=5
 
 var current_item = -1
 
@@ -73,4 +65,3 @@ var message_boxes={
 	messages.apples_where:preload("res://Sprites/Messages/apples_where.png"),
 	messages.directions:preload("res://Sprites/Messages/directions.png"),
 }
-
