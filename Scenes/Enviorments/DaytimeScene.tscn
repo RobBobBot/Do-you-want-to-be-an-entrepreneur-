@@ -1,4 +1,3 @@
-
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tilesets/mainFloor.tres" type="TileSet" id=1]
@@ -58,7 +57,9 @@ floor_map_path = NodePath("../../MainMap")
 [node name="DaytimeUI" type="Control" parent="GUILayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 __meta__ = {
 "_edit_use_anchors_": false
@@ -73,9 +74,8 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="GUILayer/DaytimeUI/HBoxContainer"]
-margin_right = 329.0
+margin_right = 408.0
 margin_bottom = 20.0
-mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "Go to editor"
@@ -83,22 +83,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Top_Bar" parent="GUILayer/DaytimeUI/HBoxContainer" instance=ExtResource( 9 )]
-anchor_right = 0.0
-margin_left = 333.0
-margin_right = 691.0
-margin_bottom = 40.0
-
 [node name="Finances" parent="GUILayer/DaytimeUI/HBoxContainer" instance=ExtResource( 5 )]
-visible = false
-margin_left = 593.0
-margin_right = 793.0
+margin_left = 412.0
+margin_right = 612.0
 
 [node name="HideWalls" type="Button" parent="GUILayer/DaytimeUI/HBoxContainer"]
-margin_left = 695.0
+margin_left = 616.0
 margin_right = 1024.0
 margin_bottom = 20.0
-mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "Hide Walls"

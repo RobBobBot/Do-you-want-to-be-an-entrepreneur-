@@ -18,8 +18,6 @@ func _process(delta):
 		var cus=customer.instance()
 		cus.floor_map_path=main_map.get_path()
 		wall_map.add_child(cus)
-		
-	#print(Globals.spawn_customer())
 
 
 
