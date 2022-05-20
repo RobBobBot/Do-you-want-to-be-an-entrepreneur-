@@ -68,4 +68,4 @@ margin_right = 136.0
 margin_bottom = 188.0
 text = "Buy"
 
-[connection signal="pressed" from="Body/Button" to="Body/LineEdit" method="_on_Button_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="Body/Button" to="Body/LineEdit" method="_on_Button_pressed" binds= [ 1 ]]
