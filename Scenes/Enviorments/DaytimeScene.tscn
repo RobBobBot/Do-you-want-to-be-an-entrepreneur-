@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tilesets/mainFloor.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/DaytimeScene.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/DaytimeMap.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/People/Customer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/GUI/Finances.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Background.gd" type="Script" id=6]
 [ext_resource path="res://Sprites/light_mask.png" type="Texture" id=7]
@@ -49,10 +48,6 @@ cell_size = Vector2( 64, 32 )
 cell_y_sort = true
 occluder_light_mask = 0
 format = 1
-
-[node name="Customer" parent="WallMap" instance=ExtResource( 4 )]
-position = Vector2( 257, 301 )
-floor_map_path = NodePath("../../MainMap")
 
 [node name="GUILayer" type="CanvasLayer" parent="."]
 

@@ -24,9 +24,6 @@ script = ExtResource( 2 )
 anchor_right = 1.0
 margin_bottom = 52.0
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Top"]
 margin_left = 412.0
@@ -53,45 +50,45 @@ grow_vertical = 0
 size_flags_vertical = 8
 
 [node name="Floors" parent="CanvasLayer/Items" instance=ExtResource( 8 )]
-margin_right = 167.0
+margin_right = 201.0
 margin_bottom = 188.0
 size_flags_horizontal = 3
 size_flags_vertical = 8
 
 [node name="Walls" parent="CanvasLayer/Items" instance=ExtResource( 5 )]
-margin_left = 171.0
+margin_left = 205.0
 margin_top = 0.0
-margin_right = 338.0
+margin_right = 407.0
 margin_bottom = 188.0
 size_flags_horizontal = 3
 size_flags_vertical = 8
 alignment = 2
 
 [node name="Objects" parent="CanvasLayer/Items" instance=ExtResource( 6 )]
-margin_left = 342.0
-margin_right = 509.0
+margin_left = 411.0
+margin_right = 612.0
 margin_bottom = 188.0
 size_flags_horizontal = 3
 size_flags_vertical = 8
 alignment = 2
 
 [node name="Employees" parent="CanvasLayer/Items" instance=ExtResource( 3 )]
-margin_left = 513.0
-margin_right = 681.0
+margin_left = 616.0
+margin_right = 818.0
 margin_bottom = 188.0
 size_flags_horizontal = 3
 size_flags_vertical = 8
 
 [node name="Marketing" type="VBoxContainer" parent="CanvasLayer/Items"]
-margin_left = 685.0
-margin_right = 852.0
+margin_left = 822.0
+margin_right = 1024.0
 margin_bottom = 188.0
 size_flags_horizontal = 3
 size_flags_vertical = 8
 script = ExtResource( 7 )
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Items/Marketing"]
-margin_right = 167.0
+margin_right = 202.0
 margin_bottom = 164.0
 mouse_filter = 1
 script = ExtResource( 9 )
@@ -99,21 +96,21 @@ script = ExtResource( 9 )
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Items/Marketing/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 160.0
+margin_right = 195.0
 margin_bottom = 157.0
 rect_min_size = Vector2( 150, 150 )
 mouse_filter = 1
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Items/Marketing/PanelContainer/ScrollContainer"]
-margin_right = 224.0
+margin_right = 176.0
 margin_bottom = 218.0
 size_flags_horizontal = 3
 
 [node name="Button1" type="Button" parent="CanvasLayer/Items/Marketing/PanelContainer/ScrollContainer/VBoxContainer"]
-margin_right = 224.0
+margin_right = 176.0
 margin_bottom = 70.0
-hint_tooltip = "Someone to shout your store's name in the public
+hint_tooltip = "Someone will shout your store's name in the public
 Increases you store's popularity by x2
 Cost: 1000"
 mouse_filter = 1
@@ -123,7 +120,7 @@ icon = ExtResource( 4 )
 
 [node name="Button2" type="Button" parent="CanvasLayer/Items/Marketing/PanelContainer/ScrollContainer/VBoxContainer"]
 margin_top = 74.0
-margin_right = 224.0
+margin_right = 176.0
 margin_bottom = 144.0
 hint_tooltip = "Your store will appear in local newspapers
 Increases you store's popularity by x4
@@ -135,31 +132,30 @@ icon = ExtResource( 4 )
 
 [node name="Button3" type="Button" parent="CanvasLayer/Items/Marketing/PanelContainer/ScrollContainer/VBoxContainer"]
 margin_top = 148.0
-margin_right = 224.0
+margin_right = 176.0
 margin_bottom = 218.0
 hint_tooltip = "\"Influencers\" will promote your store on social media
 Increases you store's popularity by x5
 Cost: 10000"
 mouse_filter = 1
 size_flags_horizontal = 3
-text = "Social media campaign"
+text = "Social media"
 icon = ExtResource( 4 )
 
 [node name="Button" type="Button" parent="CanvasLayer/Items/Marketing"]
 margin_top = 168.0
-margin_right = 167.0
+margin_right = 202.0
 margin_bottom = 188.0
 mouse_filter = 1
 text = "Marketing"
 
-[node name="Button" type="Button" parent="CanvasLayer/Items"]
-margin_left = 856.0
-margin_top = 168.0
-margin_right = 1024.0
-margin_bottom = 188.0
-size_flags_horizontal = 3
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -150.0
+margin_bottom = 20.0
 size_flags_vertical = 8
-text = "Stock"
+text = "Stocks"
 
 [connection signal="pressed" from="CanvasLayer/Top/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Items/Marketing" to="CanvasLayer/Items/Marketing" method="_on_Marketing_mouse_entered"]
@@ -167,4 +163,4 @@ text = "Stock"
 [connection signal="pressed" from="CanvasLayer/Items/Marketing/PanelContainer/ScrollContainer/VBoxContainer/Button1" to="CanvasLayer/Items/Marketing" method="_on_Button_pressed" binds= [ -1000, "Button1", "Public criers", 2 ]]
 [connection signal="pressed" from="CanvasLayer/Items/Marketing/PanelContainer/ScrollContainer/VBoxContainer/Button2" to="CanvasLayer/Items/Marketing" method="_on_Button_pressed" binds= [ -5000, "Button2", "Newspapers", 3 ]]
 [connection signal="pressed" from="CanvasLayer/Items/Marketing/PanelContainer/ScrollContainer/VBoxContainer/Button3" to="CanvasLayer/Items/Marketing" method="_on_Button_pressed" binds= [ -10000, "Button3", "Social media campaign", 5 ]]
-[connection signal="pressed" from="CanvasLayer/Items/Button" to="." method="_Market_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_Market_button_pressed"]

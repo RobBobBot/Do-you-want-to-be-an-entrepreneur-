@@ -43,6 +43,10 @@ func change_current_item(itemid):
 
 var active # 0-none, 1-floors, 2-walls, 3-objects 4-employees, 5-marketing
 
+func spawn_customer() -> bool:
+	return rng.randf_range(0.0,1000.0)<Values.popularity
+	pass
+
 enum messages{
 	happy,
 	sad,
