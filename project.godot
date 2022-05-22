@@ -56,8 +56,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Values="*res://Scripts/Singletons/Values.gd"
 Globals="*res://Scripts/Singletons/Globals.gd"
+Values="*res://Scripts/Singletons/Values.gd"
 
 [input]
 
