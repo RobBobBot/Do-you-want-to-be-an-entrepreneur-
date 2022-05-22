@@ -21,6 +21,8 @@ func take_values_from_vector(array:Array):
 	talk_mod=array[3]
 	bank_mod=array[4]
 	em_name=array[5]
+	state=array[6]
+	call_deferred("change_state",array[6])
 
 enum {
 	idle,
@@ -68,7 +70,7 @@ func begin():
 	animation_player=$AnimationPlayer
 	sprite=$Sprite
 	.begin()
-	change_state(moving_boxes)
+	#change_state(moving_boxes)
 
 func help_customer(wants:int):
 	print("here")

@@ -39,6 +39,7 @@ cell_y_sort = true
 format = 1
 script = ExtResource( 3 )
 wall_map_path = NodePath("../WallMap")
+emp_menu_hld_path = NodePath("../GUILayer/DaytimeUI/Emplyees/ScroolContainter/VBoxContainer")
 
 [node name="WallMap" type="TileMap" parent="."]
 light_mask = 2

@@ -8,10 +8,13 @@ export var basket:PackedScene=preload("res://Scenes/Interactables/Basket.tscn")
 export var emplyee:PackedScene=preload("res://Scenes/People/Emplyee.tscn")
 export var box:PackedScene=preload("res://Scenes/Interactables/Box.tscn")
 export var exit:PackedScene=preload("res://Scenes/Interactables/Door.tscn")
+
+export var emp_menu:PackedScene=preload("res://Scenes/GUI/EmplyeeMenu.tscn")
+
 export var wall_map_path:NodePath
-export var emp_menu_path:NodePath
+export var emp_menu_hld_path:NodePath
 onready var wall_map:TileMap=get_node(wall_map_path)
-onready var emp_menu=get_node(emp_menu_path)
+onready var emp_menu_hld=get_node(emp_menu_hld_path)
 var baskets=[]
 var emplyees=[]
 var boxes=[]
@@ -37,6 +40,10 @@ func add_emplyees():
 		emp.take_values_from_vector(arr)
 		emplyees.push_back(emp)
 		wall_map.add_child(emp)
+		
+		var emp_men=emp_menu.instance()
+		emp_men.take_values_from_emplyee(emp)
+		emp_menu_hld.add_child(emp_men)
 		#print("here")
 
 func remake_interactables():

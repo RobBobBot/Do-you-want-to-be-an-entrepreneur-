@@ -6,6 +6,7 @@ extends Node2D
 # var b = "text"
 
 export var customer:PackedScene=preload("res://Scenes/People/Customer.tscn")
+
 onready var main_map=$MainMap
 onready var wall_map=$WallMap
 # Called when the node enters the scene tree for the first time.
@@ -36,5 +37,6 @@ func show_all():
 
 func _on_Exit_pressed():
 	var editor=Globals.editor_scene.instance()
+	editor.call_deferred("copy_data")
 	get_parent().change_env(editor)
 	pass # Replace with function body.
