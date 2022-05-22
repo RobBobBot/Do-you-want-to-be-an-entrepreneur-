@@ -52,7 +52,7 @@ func remake_interactables():
 		set_cellv(cell,-1)
 		var bas=basket.instance()
 		bas.position=map_to_world(cell)
-		bas.held_item=Globals.rng.randi_range(0,0)
+		bas.held_item=0
 		bas.map_coords=cell
 		baskets.push_back(bas)
 		wall_map.add_child(bas)
@@ -61,7 +61,11 @@ func remake_interactables():
 		set_cellv(cell,-1)
 		var bx=box.instance()
 		bx.position=map_to_world(cell)
-		bx.held_item=Globals.rng.randi_range(1,3)
+		bx.held_item=0
+		for ix in Values.stock.keys():
+			if Values.stock[ix]>0:
+				bx.held_item=ix
+				break
 		bx.map_coords=cell
 		boxes.push_back(bx)
 		wall_map.add_child(bx)

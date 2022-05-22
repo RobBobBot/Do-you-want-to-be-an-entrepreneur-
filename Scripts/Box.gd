@@ -10,6 +10,8 @@ export var empty_texture:Texture
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if held_item==0:
+		$Box.texture=empty_texture
 	pass # Replace with function body.
 
 func empty():

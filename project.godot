@@ -56,9 +56,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Globals="*res://Sprites/Messages/Globals.gd"
+Globals="*res://Scripts/Singletons/Globals.gd"
 Values="*res://Scripts/Singletons/Values.gd"
-<<<<<<<HEADValues="*res://Scripts/Values.gd"
 
 [input]
 
