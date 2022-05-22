@@ -66,7 +66,7 @@ enum messages{
 	thanks,
 	apples_where,
 	directions,
-	
+	alert,
 	
 }
 
@@ -79,6 +79,7 @@ var message_boxes={
 	messages.thanks:preload("res://Sprites/Messages/thanks.png"),
 	messages.apples_where:preload("res://Sprites/Messages/apples_where.png"),
 	messages.directions:preload("res://Sprites/Messages/directions.png"),
+	messages.alert:preload("res://Sprites/Messages/alert.png")
 }
 
 

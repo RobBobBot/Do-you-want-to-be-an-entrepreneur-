@@ -9,10 +9,15 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node2D",
+"base": "Interactable",
 "class": "Basket",
 "language": "GDScript",
 "path": "res://Scripts/Basket.gd"
+}, {
+"base": "Interactable",
+"class": "Door",
+"language": "GDScript",
+"path": "res://Scripts/Door.gd"
 }, {
 "base": "TileMap",
 "class": "EditableMap",
@@ -25,14 +30,21 @@ _global_script_classes=[ {
 "path": "res://Scripts/Emplyee.gd"
 }, {
 "base": "Node2D",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://Scripts/Interactable.gd"
+}, {
+"base": "Node2D",
 "class": "Man",
 "language": "GDScript",
 "path": "res://Scripts/Man.gd"
 } ]
 _global_script_class_icons={
 "Basket": "",
+"Door": "",
 "EditableMap": "",
 "Emplyee": "",
+"Interactable": "",
 "Man": ""
 }
 

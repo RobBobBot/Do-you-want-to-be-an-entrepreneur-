@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/light_mask.png-074d7f0a0a179ba7f730909a0f8ff7e0.stex"
+path="res://.import/berry_basket.png-bb5c6edd6a075dc2553b1d1db728ec66.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/light_mask.png"
-dest_files=[ "res://.import/light_mask.png-074d7f0a0a179ba7f730909a0f8ff7e0.stex" ]
+source_file="res://Sprites/berry_basket.png"
+dest_files=[ "res://.import/berry_basket.png-bb5c6edd6a075dc2553b1d1db728ec66.stex" ]
 
 [params]
 
