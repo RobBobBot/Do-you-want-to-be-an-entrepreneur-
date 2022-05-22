@@ -88,13 +88,19 @@ func state_transition():
 			emit_signal("stopped_talking",helped)
 			change_state(idle)
 		moving_boxes:
-			held_item=target_box.held_item
-			target_box.empty()
-			change_state(filling_baskets)
+			if target_box.held_item ==0:
+				change_state(moving_boxes)
+			else:
+				held_item=target_box.held_item
+				target_box.empty()
+				change_state(filling_baskets)
 		filling_baskets:
-			target_basket.fill(held_item)
-			held_item=0
-			change_state(moving_boxes)
+			if target_basket.held_item !=0:
+				change_state(filling_baskets)
+			else:
+				target_basket.fill(held_item)
+				held_item=0
+				change_state(moving_boxes)
 
 func move_to_next():
 	if move_stack.empty():
