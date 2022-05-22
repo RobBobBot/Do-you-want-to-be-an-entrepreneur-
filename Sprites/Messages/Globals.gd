@@ -51,12 +51,6 @@ func change_current_item(itemid):
 
 var active # 0-none, 1-floors, 2-walls, 3-objects 4-employees
 
-func spawn_customer() -> bool:
-	return rng.randi_range(1,1000)<Values.popularity
-	pass
-
-
-
 enum messages{
 	happy,
 	sad,
@@ -81,5 +75,4 @@ var message_boxes={
 	messages.directions:preload("res://Sprites/Messages/directions.png"),
 	messages.alert:preload("res://Sprites/Messages/alert.png")
 }
-
 
