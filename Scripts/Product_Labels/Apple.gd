@@ -8,7 +8,7 @@ func _on_Button_pressed():
 	var items:int = int($Body/LineEdit.text)
 	if Globals.money<Values.buy_cost[Values.APPLE]*items:
 		items=Globals.money/Values.buy_cost[Values.APPLE]
-	Globals.change_money(Values.products[Values.APPLE][0]*items,Values.products[Values.APPLE][1])
+	Globals.change_money(-Values.buy_cost[Values.APPLE]*items,Values.products[Values.APPLE][1])
 	Values.stock[Values.APPLE]+=items
 
 
