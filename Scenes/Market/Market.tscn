@@ -10,9 +10,6 @@ anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -44,13 +41,13 @@ rect_min_size = Vector2( 0, 450 )
 size_flags_vertical = 4
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/ScrollContainer"]
-margin_right = 98.0
-margin_bottom = 202.0
+margin_right = 78.0
+margin_bottom = 184.0
 size_flags_vertical = 4
 columns = 10
 
 [node name="Apple" parent="CanvasLayer/ScrollContainer/GridContainer" instance=ExtResource( 1 )]
-margin_right = 98.0
-margin_bottom = 202.0
+margin_right = 78.0
+margin_bottom = 184.0
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

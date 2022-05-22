@@ -11,15 +11,12 @@ hint_tooltip = "An apple a day keeps 9/10 doctors away!"
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Body" type="VBoxContainer" parent="."]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 143.0
-margin_bottom = 195.0
+margin_bottom = 177.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -50,25 +47,18 @@ margin_bottom = 118.0
 text = "Stock: 0"
 align = 1
 
-[node name="Display" type="Label" parent="Body"]
+[node name="LineEdit" type="LineEdit" parent="Body"]
 margin_top = 122.0
 margin_right = 136.0
-margin_bottom = 136.0
-text = "On display: 0"
-align = 1
-
-[node name="LineEdit" type="LineEdit" parent="Body"]
-margin_top = 140.0
-margin_right = 136.0
-margin_bottom = 164.0
+margin_bottom = 146.0
 align = 1
 max_length = 5
 script = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="Body"]
-margin_top = 168.0
+margin_top = 150.0
 margin_right = 136.0
-margin_bottom = 188.0
+margin_bottom = 170.0
 text = "Buy"
 
 [connection signal="pressed" from="Body/Button" to="Body/LineEdit" method="_on_Button_pressed" binds= [ 1 ]]

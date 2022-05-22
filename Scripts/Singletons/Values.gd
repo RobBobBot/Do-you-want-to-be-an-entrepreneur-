@@ -35,7 +35,12 @@ var sell_cost = {
 	APPLE:10,
 	BANANA:30,
 	BLUEBERRY:60
-	
+}
+
+var buy_cost = {
+	APPLE:1,
+	BANANA:30,
+	BLUEBERRY:60
 }
 
 var emplyees = [

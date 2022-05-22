@@ -19,6 +19,7 @@ func _process(delta):# te rog sa ignori acest fisier
 
 func _on_Button_pressed(arg):
 	var items:int = int(text)
-	if Globals.money<Values.products[arg][0]*items:
-		items=Globals.money/Values.products[arg][0]
+	if Globals.money<Values.buy_cost[arg]*items:
+		items=(Globals.money/Values.buy_cost[arg])
 	Globals.change_money(Values.products[arg][0]*items,Values.products[arg][1])
+	Values.stock[arg]+=items

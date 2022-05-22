@@ -23,6 +23,8 @@ func _process(delta):
 signal transaction
 
 func change_money(amount:int,item) -> bool:
+	if amount == 0:
+		return false
 	if money+amount < 0 :
 		return false
 	money+=amount
