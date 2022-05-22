@@ -4,7 +4,9 @@ const items = [
 	[-10,"Wooden floor",preload ("res://Sprites/wooden_floor.png")],
 	[-15,"Wooden wall",preload ("res://Sprites/wooden_wall.png")],
 	[-20,"Tall wooden wall", preload ("res://Sprites/wooden_wall_var_2.png")],
-	[-100,"Basket", preload ("res://Sprites/empty_basket.png")]
+	[-100,"Basket", preload ("res://Sprites/empty_basket.png")],
+	[],
+	[-20,"Box",preload ("res://Sprites/storage_space.png")]
 ]
 
 enum {
@@ -35,14 +37,18 @@ var sell_cost = {
 	APPLE:10,
 	BANANA:30,
 	BLUEBERRY:60
-	
 }
 
+var buy_cost = {
+	APPLE:1,
+	BANANA:3,
+	BLUEBERRY:6
+}
 
 var emplyees = [
-	[0,0,0.5,0.5,0.5,"Emplyee"]
-	
-	
+	[2,-3,0.7,0.7,0.1,"Kristov",Emplyee.idle],
+	[0,-3,0.5,0.5,0.5,"Vladimir",Emplyee.housing],
+	[1,-2,0.2,0.5,0.7,"Masha",Emplyee.moving_boxes],
 ]
 
 func _ready():
@@ -50,4 +56,7 @@ func _ready():
 	
 var tiles:TileSet
 
-var popularity:int = 1
+var editor_tilemap:EditableMap=EditableMap.new()
+
+var popularity:float = 1.00
+var offset:float = 0

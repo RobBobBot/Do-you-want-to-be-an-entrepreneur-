@@ -10,4 +10,3 @@ script = ExtResource( 2 )
 self_modulate = Color( 0.337255, 1, 0, 0.4 )
 texture = ExtResource( 1 )
 centered = false
-offset = Vector2( -32, -96 )

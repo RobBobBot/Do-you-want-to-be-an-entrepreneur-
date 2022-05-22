@@ -7,6 +7,13 @@ var em_name:String="Emplyee"
 var helped:bool=0
 signal stopped_talking
 
+export var normal_texture:Texture
+export var housing_texture:Texture
+
+
+var target_box
+var target_basket
+
 func take_values_from_vector(array:Array):
 	x=array[0]
 	y=array[1]
@@ -14,24 +21,56 @@ func take_values_from_vector(array:Array):
 	talk_mod=array[3]
 	bank_mod=array[4]
 	em_name=array[5]
+	state=array[6]
+	call_deferred("change_state",array[6])
 
 enum {
 	idle,
 	helping_customer,
+	moving_boxes,
+	filling_baskets,
+	housing,
 }
 
-var state=idle
+export var state=idle
+
+var held_item:int
 
 func change_state(new_state:int):
-	if new_state==helping_customer:
-		show_message(Globals.messages.yes,false)
 	state=new_state
+	$Sprite/Sprite.texture=normal_texture
+	match new_state:
+		idle:
+			move_stack.clear()
+		helping_customer:
+			show_message(Globals.messages.alert,false)
+		housing:
+			$Sprite/Sprite.texture=housing_texture
+		moving_boxes:
+			move_stack.clear()
+			target_box=floor_map.get_box()
+			if target_box:
+				make_path_to_target(target_box.map_coords,true)
+				move_to_next()
+			else:
+				print("here")
+				change_state(idle)
+		filling_baskets:
+			move_stack.clear()
+			target_basket=floor_map.get_good_basket(0)
+			if target_basket:
+				make_path_to_target(target_basket.map_coords,true)
+				move_to_next()
+			else:
+				change_state(idle)
 
 func begin():
+	#$PopupMenu.popup(Rect2(position.x,position.y,0,0))
 	sprite_mover=$Tween
 	animation_player=$AnimationPlayer
 	sprite=$Sprite
 	.begin()
+	#change_state(moving_boxes)
 
 func help_customer(wants:int):
 	print("here")
@@ -46,16 +85,37 @@ func help_customer(wants:int):
 		move_to_next()
 	#change_state(idle)
 
+func state_transition():
+	match state:
+		helping_customer:
+			emit_signal("stopped_talking",helped)
+			change_state(idle)
+		moving_boxes:
+			if target_box.held_item ==0:
+				change_state(moving_boxes)
+			else:
+				held_item=target_box.held_item
+				target_box.empty()
+				change_state(filling_baskets)
+		filling_baskets:
+			if target_basket.held_item !=0:
+				change_state(filling_baskets)
+			else:
+				target_basket.fill(held_item)
+				held_item=0
+				change_state(moving_boxes)
+
 func move_to_next():
-	print(move_stack)
 	if move_stack.empty():
-		print("still here")
-		match state:
-			helping_customer:
-				emit_signal("stopped_talking",helped)
-				print("still here")
-				change_state(idle)
-	.move_to_next()
+		print("trans")
+		state_transition()
+	else:
+		.move_to_next()
+
+func _process(delta):
+	pass
+	#print(move_stack)
+
 
 
 

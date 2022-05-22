@@ -10,16 +10,9 @@ func _process(delta):# te rog sa ignori acest fisier
 		text = tmp
 	
 	for i in text.length():
-		var isdigitagain: bool = text[i]=="0" || text[i]=="1" || text[i]=="2" || text[i]=="3" || text[i]=="4" || text[i]=="5" || text[i]=="6" || text[i]=="7" || text[i]=="8" || text[i]=="9"
+		var isdigitagain: bool = text[i]>="0" and text[i] <="9"
 		if !isdigitagain:
 			var tmp = text
 			tmp.erase(i,1)
 			text = tmp
 			return
-
-func _on_Button_pressed(arg):
-	var items:int = int(text)
-	for i in items:
-		if Globals.change_money(Values.products[arg][0],Values.products[arg][1]):
-			Values.stock[arg]+=1
-		
