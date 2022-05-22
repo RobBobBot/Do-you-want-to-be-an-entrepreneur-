@@ -21,13 +21,18 @@ func take_values_from_emplyee(emp:Emplyee):
 	var occ:String
 	match emp.state:
 		Emplyee.idle:
-			occ="idle"
+			occ="Idle"
 		Emplyee.helping_customer:
-			occ="helping customer"
+			occ="Helping Customers"
 		Emplyee.moving_boxes:
-			occ="filling stalls"
+			occ="Filling Stalls"
 		Emplyee.housing:
-			occ="housing"
+			occ="Housing"
+	$Occupation.text="Current Occupation:\n"+occ
+	
+	if emp.em_name.to_lower()=="fgdd":
+		$TextureRect.texture=load("res://icon.png")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
