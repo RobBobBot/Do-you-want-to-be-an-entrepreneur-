@@ -13,7 +13,6 @@ func _ready():
 	$Sprite/EmptyBasket.texture=sprites[held_item]
 	if held_item!=0:
 		Values.display[held_item]+=1
-	pass # Replace with function body.
 
 func empty():
 	#held_item=1

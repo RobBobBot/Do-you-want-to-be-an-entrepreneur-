@@ -14,13 +14,10 @@ func _ready():
 
 func _process(delta):
 	
-	if Input.is_action_just_pressed("space"):
+	if Input.is_action_just_pressed("space") || (Globals.hours<20 && Globals.spawn_customer()):
 		var cus=customer.instance()
 		cus.floor_map_path=main_map.get_path()
 		wall_map.add_child(cus)
-
-
-
 
 func _on_HideWalls_pressed():
 	$WallHider.energy=1-$WallHider.energy

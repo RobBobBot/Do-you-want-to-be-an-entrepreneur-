@@ -27,9 +27,4 @@ custom_styles/normal = SubResource( 1 )
 button_mask = 2
 items = [ "(empty)", null, 0, false, false, 0, 0, null, "", false, "Apple", null, 0, false, false, 1, 0, null, "", false ]
 
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [connection signal="pressed" from="Sprite/EmptyBasket/MenuButton" to="." method="_on_MenuButton_pressed"]
-
