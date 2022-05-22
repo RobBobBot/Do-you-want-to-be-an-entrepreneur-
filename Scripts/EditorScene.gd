@@ -9,12 +9,11 @@ func _ready():
 
 func go_to_daytime():
 	var daytime=Globals.daytime_scene.instance()
-	get_parent().add_child(daytime)
 	$TileMap.copy_data_into(daytime.get_node(daytime_main_map_name))
-	daytime.get_node(daytime_main_map_name).remake_interactables()
-	daytime.get_node(daytime_main_map_name).remake_walls()
-	daytime.get_node(daytime_main_map_name).add_emplyees()
-	queue_free()
+	daytime.get_node(daytime_main_map_name).call_deferred("remake_interactables")
+	daytime.get_node(daytime_main_map_name).call_deferred("remake_walls")
+	daytime.get_node(daytime_main_map_name).call_deferred("add_emplyees")
+	get_parent().change_env(daytime)
 
 func go_to_market():
 	var market = Globals.market_scene.instance()
@@ -34,3 +33,13 @@ func show_editor():
 	$GUILayer/GUI/CanvasLayer/Items.visible=true
 	$GUILayer/GUI/CanvasLayer/Top.visible=true
 	$GUILayer/MouseCatcher.visible=true
+
+func hide_all():
+	hide()
+	$GUILayer/MouseCatcher.hide()
+	$GUILayer/GUI.hide_all()
+
+func show_all():
+	show()
+	$GUILayer/MouseCatcher.show()
+	$GUILayer/GUI.show_all()

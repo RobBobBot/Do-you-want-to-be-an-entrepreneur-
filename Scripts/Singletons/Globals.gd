@@ -62,6 +62,19 @@ enum messages{
 	
 }
 
+enum envs{
+	title,
+	editor,
+	daytime
+}
+
+var env_scenes={
+	envs.title:preload("res://Scenes/Enviorments/TitleScreen.tscn"),
+	envs.editor:preload("res://Scenes/Enviorments/EditorScene.tscn"),
+	envs.daytime:preload("res://Scenes/Enviorments/DaytimeScene.tscn")
+	
+}
+
 var message_boxes={
 	messages.happy:preload("res://Sprites/Messages/happy.png"),
 	messages.sad:preload("res://Sprites/Messages/sad.png"),

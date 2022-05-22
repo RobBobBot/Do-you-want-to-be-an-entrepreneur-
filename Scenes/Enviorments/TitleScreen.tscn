@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Fonts/Montserrat-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/employee.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/PrimalMan.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Scenes/Enviorments/TitleScreen.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.486275 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 72
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0.592157 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 0.509804 )
+
+[node name="TitleScreen" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_top = 0.228
+anchor_right = 1.0
+anchor_bottom = 0.787
+margin_top = 0.199997
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 140.0
+margin_right = -137.0
+custom_fonts/font = SubResource( 2 )
+text = "Vrei Sa fi Anteprenor?"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.000976563
+anchor_top = 0.351667
+anchor_right = 0.215758
+anchor_bottom = 0.828667
+margin_right = 0.0639992
+margin_bottom = -0.200001
+rect_rotation = -14.1
+texture = ExtResource( 2 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_left = 0.824219
+anchor_top = 0.26
+anchor_right = 1.039
+anchor_bottom = 0.737
+margin_right = 0.0639992
+margin_bottom = -0.200001
+rect_rotation = 16.4
+texture = ExtResource( 3 )
+stretch_mode = 6
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.261719
+anchor_top = 0.823333
+anchor_right = 0.726031
+anchor_bottom = 0.973
+margin_right = -0.456001
+margin_bottom = 0.200001
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

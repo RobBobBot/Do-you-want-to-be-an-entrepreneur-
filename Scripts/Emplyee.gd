@@ -35,6 +35,7 @@ export var state=idle
 var held_item:int
 
 func change_state(new_state:int):
+	state=new_state
 	$Sprite/Sprite.texture=normal_texture
 	match new_state:
 		idle:
@@ -50,6 +51,7 @@ func change_state(new_state:int):
 				make_path_to_target(target_box.map_coords,true)
 				move_to_next()
 			else:
+				print("here")
 				change_state(idle)
 		filling_baskets:
 			move_stack.clear()
@@ -59,7 +61,6 @@ func change_state(new_state:int):
 				move_to_next()
 			else:
 				change_state(idle)
-	state=new_state
 
 func begin():
 	#$PopupMenu.popup(Rect2(position.x,position.y,0,0))
@@ -88,19 +89,30 @@ func state_transition():
 			emit_signal("stopped_talking",helped)
 			change_state(idle)
 		moving_boxes:
-			held_item=target_box.held_item
-			target_box.empty()
-			change_state(filling_baskets)
+			if target_box.held_item ==0:
+				change_state(moving_boxes)
+			else:
+				held_item=target_box.held_item
+				target_box.empty()
+				change_state(filling_baskets)
 		filling_baskets:
-			target_basket.fill(held_item)
-			held_item=0
-			change_state(moving_boxes)
+			if target_basket.held_item !=0:
+				change_state(filling_baskets)
+			else:
+				target_basket.fill(held_item)
+				held_item=0
+				change_state(moving_boxes)
 
 func move_to_next():
 	if move_stack.empty():
+		print("trans")
 		state_transition()
 	else:
 		.move_to_next()
+
+func _process(delta):
+	pass
+	#print(move_stack)
 
 
 

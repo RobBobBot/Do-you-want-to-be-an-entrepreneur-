@@ -9,7 +9,9 @@ export var emplyee:PackedScene=preload("res://Scenes/People/Emplyee.tscn")
 export var box:PackedScene=preload("res://Scenes/Interactables/Box.tscn")
 export var exit:PackedScene=preload("res://Scenes/Interactables/Door.tscn")
 export var wall_map_path:NodePath
+export var emp_menu_path:NodePath
 onready var wall_map:TileMap=get_node(wall_map_path)
+onready var emp_menu=get_node(emp_menu_path)
 var baskets=[]
 var emplyees=[]
 var boxes=[]
@@ -38,6 +40,7 @@ func add_emplyees():
 		#print("here")
 
 func remake_interactables():
+	#wall_map=get_node(wall_map_path)
 	for cell in get_used_cells_by_id(tile_set.find_tile_by_name("door")):
 		exit_coords=cell
 		set_cellv(cell,0)
