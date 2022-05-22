@@ -47,7 +47,7 @@ var buy_cost = {
 
 var emplyees = [
 	[0,-3,0.5,0.5,0.5,"Emplyee"],
-	[0,-2,0.5,0.5,0.5,"Emplyee"]
+	#[0,-2,0.5,0.5,0.5,"Emplyee"]
 	
 ]
 

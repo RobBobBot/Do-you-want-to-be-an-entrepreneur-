@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Emplyee.gd"
 }, {
+"base": "Panel",
+"class": "EmplyeeMenu",
+"language": "GDScript",
+"path": "res://Scripts/EmplyeeMenu.gd"
+}, {
 "base": "Node2D",
 "class": "Interactable",
 "language": "GDScript",
@@ -44,6 +49,7 @@ _global_script_class_icons={
 "Door": "",
 "EditableMap": "",
 "Emplyee": "",
+"EmplyeeMenu": "",
 "Interactable": "",
 "Man": ""
 }
@@ -108,4 +114,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0.807843, 1, 0.972549, 1 )
 environment/default_environment="res://default_env.tres"

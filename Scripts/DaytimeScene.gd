@@ -22,3 +22,19 @@ func _process(delta):
 func _on_HideWalls_pressed():
 	$WallHider.energy=1-$WallHider.energy
 	pass # Replace with function body.
+
+func hide_all():
+	hide()
+	$BgLayer/Background.hide()
+	$GUILayer/DaytimeUI.hide()
+
+func show_all():
+	show()
+	$BgLayer/Background.show()
+	$GUILayer/DaytimeUI.show()
+
+
+func _on_Exit_pressed():
+	var editor=Globals.editor_scene.instance()
+	get_parent().change_env(editor)
+	pass # Replace with function body.
