@@ -8,7 +8,7 @@ extends Sprite
 export var length:float=10048
 export var  vlength:float=5000
 
-const max_time=60*12
+const max_time=60*20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

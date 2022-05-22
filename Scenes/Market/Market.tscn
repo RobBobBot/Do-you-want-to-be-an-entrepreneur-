@@ -41,13 +41,12 @@ rect_min_size = Vector2( 0, 450 )
 size_flags_vertical = 4
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/ScrollContainer"]
-margin_right = 78.0
-margin_bottom = 184.0
+margin_right = 150.0
+margin_bottom = 254.0
 size_flags_vertical = 4
 columns = 10
 
 [node name="Apple" parent="CanvasLayer/ScrollContainer/GridContainer" instance=ExtResource( 1 )]
-margin_right = 78.0
-margin_bottom = 184.0
+margin_bottom = 254.0
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
