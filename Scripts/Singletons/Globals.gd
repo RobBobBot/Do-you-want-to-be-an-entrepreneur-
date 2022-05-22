@@ -23,6 +23,8 @@ func _process(delta):
 signal transaction
 
 func change_money(amount:int,item) -> bool:
+	if amount == 0:
+		return false
 	if money+amount < 0 :
 		return false
 	money+=amount
@@ -41,7 +43,7 @@ var current_item = -1
 func change_current_item(itemid):
 	current_item = itemid
 
-var active # 0-none, 1-floors, 2-walls, 3-objects 4-employees, 5-marketing
+var active # 0-none, 1-floors, 2-walls, 3-objects 4-employees, 5-marketing,
 
 func spawn_customer() -> bool:
 	return rng.randf_range(0.0,1000.0)<Values.popularity

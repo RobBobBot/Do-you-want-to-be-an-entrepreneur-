@@ -4,7 +4,9 @@ const items = [
 	[-10,"Wooden floor",preload ("res://Sprites/wooden_floor.png")],
 	[-15,"Wooden wall",preload ("res://Sprites/wooden_wall.png")],
 	[-20,"Tall wooden wall", preload ("res://Sprites/wooden_wall_var_2.png")],
-	[-100,"Basket", preload ("res://Sprites/empty_basket.png")]
+	[-100,"Basket", preload ("res://Sprites/empty_basket.png")],
+	[],
+	[-20,"Box",preload ("res://Sprites/storage_space.png")]
 ]
 
 enum {
@@ -35,7 +37,12 @@ var sell_cost = {
 	APPLE:10,
 	BANANA:30,
 	BLUEBERRY:60
-	
+}
+
+var buy_cost = {
+	APPLE:1,
+	BANANA:3,
+	BLUEBERRY:6
 }
 
 var emplyees = [

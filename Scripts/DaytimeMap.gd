@@ -65,6 +65,7 @@ func remake_interactables():
 		for ix in Values.stock.keys():
 			if Values.stock[ix]>0:
 				bx.held_item=ix
+				Values.stock[ix]-=1
 				break
 		bx.map_coords=cell
 		boxes.push_back(bx)

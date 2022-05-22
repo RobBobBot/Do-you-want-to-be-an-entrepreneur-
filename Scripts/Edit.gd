@@ -16,9 +16,3 @@ func _process(delta):# te rog sa ignori acest fisier
 			tmp.erase(i,1)
 			text = tmp
 			return
-
-func _on_Button_pressed(arg):
-	var items:int = int(text)
-	if Globals.money<Values.products[arg][0]*items:
-		items=Globals.money/Values.products[arg][0]
-	Globals.change_money(Values.products[arg][0]*items,Values.products[arg][1])
