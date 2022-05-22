@@ -9,7 +9,7 @@ export var y:int
 export var move_time:float=0.5
 export var idle_chance:float=0.2
 
-export var message:PackedScene=preload("res://Scenes/Message.tscn")
+export var message:PackedScene=preload("res://Scenes/People/Message.tscn")
 export var talk_time=1
 
 const NORTH=Vector2(0,-1)
@@ -46,7 +46,7 @@ func update_position():
 
 
 func make_path_to_target(tar:Vector2, del_last:bool=0): #foloseste lee ca sa updateze vectorul de miscare
-	print(tar)
+	#print(tar)
 	var queue:Array
 	var dir:Dictionary
 	queue.push_back(Vector2(x,y))

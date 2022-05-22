@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Tilesets/mainFloor.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/DaytimeScene.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/DaytimeMap.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/GUI/Top_Bar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/GUI/Finances.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Background.gd" type="Script" id=6]
 [ext_resource path="res://Sprites/light_mask.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/GUI/Top_Bar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/GUI/EmplyeeMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/End_day_button.gd" type="Script" id=9]
 
 [sub_resource type="Gradient" id=1]
@@ -57,16 +58,22 @@ anchor_bottom = 1.0
 mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUILayer/DaytimeUI"]
+anchor_left = 0.227
 anchor_right = 1.0
 anchor_bottom = 0.067
 margin_bottom = -0.200001
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="Button" parent="GUILayer/DaytimeUI/HBoxContainer"]
-margin_right = 329.0
+margin_right = 212.0
 margin_bottom = 20.0
+focus_mode = 0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 0
+enabled_focus_mode = 0
 text = "End day"
 script = ExtResource( 9 )
 __meta__ = {
@@ -78,26 +85,82 @@ visible = false
 margin_left = 231.0
 margin_right = 431.0
 
-[node name="Top_Bar" parent="GUILayer/DaytimeUI/HBoxContainer" instance=ExtResource( 8 )]
+[node name="Top_Bar" parent="GUILayer/DaytimeUI/HBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
-margin_left = 333.0
-margin_right = 691.0
+margin_left = 216.0
+margin_right = 574.0
 margin_bottom = 40.0
 size_flags_horizontal = 5
 
 [node name="HideWalls" type="Button" parent="GUILayer/DaytimeUI/HBoxContainer"]
-margin_left = 695.0
-margin_right = 1024.0
+margin_left = 578.0
+margin_right = 791.0
 margin_bottom = 20.0
+focus_mode = 0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 0
+enabled_focus_mode = 0
 text = "Hide Walls"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Emplyees" type="Panel" parent="GUILayer/DaytimeUI"]
+anchor_right = 0.21
+anchor_bottom = 1.0
+margin_right = -0.0400085
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GUILayer/DaytimeUI/Emplyees"]
+anchor_left = 0.0658683
+anchor_top = 0.0196429
+anchor_right = 0.922635
+anchor_bottom = 0.0446429
+margin_right = -0.0800018
+text = "Empolyees"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScroolContainter" type="ScrollContainer" parent="GUILayer/DaytimeUI/Emplyees"]
+anchor_top = 0.0560579
+anchor_right = 1.0
+anchor_bottom = 1.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUILayer/DaytimeUI/Emplyees/ScroolContainter"]
+margin_right = 203.0
+margin_bottom = 908.0
+size_flags_horizontal = 3
+
+[node name="EmplyeeMenu" parent="GUILayer/DaytimeUI/Emplyees/ScroolContainter/VBoxContainer" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 202.0
+margin_bottom = 300.0
+
+[node name="EmplyeeMenu2" parent="GUILayer/DaytimeUI/Emplyees/ScroolContainter/VBoxContainer" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 304.0
+margin_right = 202.0
+margin_bottom = 604.0
+
+[node name="EmplyeeMenu3" parent="GUILayer/DaytimeUI/Emplyees/ScroolContainter/VBoxContainer" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 608.0
+margin_right = 202.0
+margin_bottom = 908.0
+
 [node name="WallHider" type="Light2D" parent="."]
+position = Vector2( 5, -8 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 mode = 3

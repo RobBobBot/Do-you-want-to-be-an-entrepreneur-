@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/light_mask.png-074d7f0a0a179ba7f730909a0f8ff7e0.stex"
+path="res://.import/employee_stall.png-82d0f696ad2a43008eab18510bfb7830.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/light_mask.png"
-dest_files=[ "res://.import/light_mask.png-074d7f0a0a179ba7f730909a0f8ff7e0.stex" ]
+source_file="res://Sprites/employee_stall.png"
+dest_files=[ "res://.import/employee_stall.png-82d0f696ad2a43008eab18510bfb7830.stex" ]
 
 [params]
 
