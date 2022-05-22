@@ -46,15 +46,17 @@ var buy_cost = {
 }
 
 var emplyees = [
-	[0,-3,0.5,0.5,0.5,"Emplyee"],
-	#[0,-2,0.5,0.5,0.5,"Emplyee"]
-	
+	[2,-3,0.7,0.7,0.1,"Kristov",Emplyee.idle],
+	[0,-3,0.5,0.5,0.5,"Vladimir",Emplyee.housing],
+	[1,-2,0.2,0.5,0.7,"Masha",Emplyee.moving_boxes],
 ]
 
 func _ready():
 	pass
 	
 var tiles:TileSet
+
+var editor_tilemap:EditableMap=EditableMap.new()
 
 var popularity:float = 1.00
 var offset:float = 0
