@@ -90,7 +90,7 @@ stretch_mode = 6
 margin_top = 118.0
 margin_right = 136.0
 margin_bottom = 132.0
-text = "Cost: 3"
+text = "Cost: 5"
 align = 1
 
 [node name="Stock" type="Label" parent="CanvasLayer/ScrollContainer/GridContainer/Banana/Body"]
@@ -170,7 +170,7 @@ stretch_mode = 6
 margin_top = 118.0
 margin_right = 136.0
 margin_bottom = 132.0
-text = "Cost: 6"
+text = "Cost: 10"
 align = 1
 
 [node name="Stock" type="Label" parent="CanvasLayer/ScrollContainer/GridContainer/Blueberry/Body"]
