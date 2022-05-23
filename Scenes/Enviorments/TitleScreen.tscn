@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Fonts/Montserrat-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/employee.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Sprites/apple.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/berry.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/banana.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/logo/logo_grad.png" type="Texture" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.486275 )
@@ -51,9 +52,6 @@ text = "Vrei Sa fi Anteprenor?"
 align = 1
 valign = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.000976563
@@ -172,5 +170,16 @@ stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="TextureRect8" type="TextureRect" parent="."]
+anchor_left = 0.83
+anchor_top = 0.892
+anchor_right = 0.898
+anchor_bottom = 0.943
+margin_left = 0.0799561
+margin_top = -0.200012
+margin_right = 0.447937
+margin_bottom = 0.200012
+texture = ExtResource( 9 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -34,15 +34,15 @@ var display = {
 }
 
 var sell_cost = {
-	APPLE:10,
-	BANANA:30,
-	BLUEBERRY:60
+	APPLE:5,
+	BANANA:25,
+	BLUEBERRY:50
 }
 
 var buy_cost = {
 	APPLE:1,
-	BANANA:3,
-	BLUEBERRY:6
+	BANANA:5,
+	BLUEBERRY:10
 }
 
 var emplyees = [
@@ -60,3 +60,5 @@ var editor_tilemap:EditableMap=EditableMap.new()
 
 var popularity:float = 1.00
 var offset:float = 0
+
+var clients = 0
